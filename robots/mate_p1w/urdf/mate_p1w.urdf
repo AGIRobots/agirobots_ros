@@ -1,0 +1,1479 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="mate_p1w">
+
+
+<material name="#ffffff">
+  <color rgba="1.000 1.000 1.000 1.0" />
+</material>
+<material name="#787878">
+  <color rgba="0.471 0.471 0.471 1.0" />
+</material>
+<material name="#1f1f1f">
+  <color rgba="0.122 0.122 0.122 1.0" />
+</material>
+<material name="#2b2b2b">
+  <color rgba="0.169 0.169 0.169 1.0" />
+</material>
+<material name="#141414">
+  <color rgba="0.082 0.082 0.082 1.0" />
+</material>
+<material name="#646464">
+  <color rgba="0.396 0.396 0.396 1.0" />
+</material>
+<material name="#b4b4b0">
+  <color rgba="0.706 0.706 0.694 1.0" />
+</material>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0" />
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="base_to_mobile_base_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.307" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="base_link" />
+    <child link="mobile_base" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="mobile_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="13.809774" />
+      <inertia ixx="30.091595" ixy="-0.030378" ixz="-0.006442" iyy="40.199161" iyz="0.005012" izz="67.717611" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/mobile_base.stl" />
+      </geometry>
+      <material name="#646464" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/mobile_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_front_steering_joint" type="revolute">
+    <origin xyz="0.2 0.165 -0.08" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="mobile_base" />
+    <child link="left_front_mobile_base_steering_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_front_mobile_base_steering_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.300000" />
+      <inertia ixx="1.866399" ixy="-0.001076" ixz="0.000397" iyy="1.860265" iyz="-0.048037" izz="1.621375" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_front_mobile_base_steering_link.stl" />
+      </geometry>
+      <material name="#1f1f1f" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_front_mobile_base_steering_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_front_wheel_joint" type="continuous">
+    <origin xyz="3.7e-05 0.0125 -0.127006" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="left_front_mobile_base_steering_link" />
+    <child link="left_front_mobile_base_wheel" />
+  </joint>
+
+  <link name="left_front_mobile_base_wheel">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.686357" />
+      <inertia ixx="0.565384" ixy="0.000115" ixz="-0.000000" iyy="0.619632" iyz="-0.000000" izz="0.565369" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_front_mobile_base_wheel.stl" />
+      </geometry>
+      <material name="#2b2b2b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_front_mobile_base_wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_front_wheel_cover_joint" type="fixed">
+    <origin xyz="3.7e-05 0.0125 -0.127006" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="left_front_mobile_base_steering_link" />
+    <child link="left_front_mobile_base_wheel_cover" />
+  </joint>
+
+  <link name="left_front_mobile_base_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.301463" />
+      <inertia ixx="0.133779" ixy="0.000031" ixz="0.000005" iyy="0.148080" iyz="0.000052" izz="0.133853" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_front_mobile_base_wheel_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_front_mobile_base_wheel_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_rear_steering_joint" type="revolute">
+    <origin xyz="-0.2 0.165 -0.08" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="mobile_base" />
+    <child link="left_rear_mobile_base_steering_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_rear_mobile_base_steering_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.300000" />
+      <inertia ixx="1.866399" ixy="-0.001076" ixz="0.000397" iyy="1.860265" iyz="-0.048037" izz="1.621375" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_rear_mobile_base_steering_link.stl" />
+      </geometry>
+      <material name="#1f1f1f" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_rear_mobile_base_steering_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_rear_wheel_joint" type="continuous">
+    <origin xyz="3.7e-05 0.0125 -0.127006" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="left_rear_mobile_base_steering_link" />
+    <child link="left_rear_mobile_base_wheel" />
+  </joint>
+
+  <link name="left_rear_mobile_base_wheel">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.686357" />
+      <inertia ixx="0.565384" ixy="0.000115" ixz="-0.000000" iyy="0.619632" iyz="-0.000000" izz="0.565369" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_rear_mobile_base_wheel.stl" />
+      </geometry>
+      <material name="#2b2b2b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_rear_mobile_base_wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_rear_wheel_cover_joint" type="fixed">
+    <origin xyz="0.0 0.01 -0.13" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="left_rear_mobile_base_steering_link" />
+    <child link="left_rear_mobile_base_wheel_cover" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_rear_mobile_base_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.301463" />
+      <inertia ixx="0.133779" ixy="0.000031" ixz="0.000005" iyy="0.148080" iyz="0.000052" izz="0.133853" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_rear_mobile_base_wheel_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_rear_mobile_base_wheel_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_front_steering_joint" type="revolute">
+    <origin xyz="-0.2 -0.165 -0.08" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="mobile_base" />
+    <child link="right_front_mobile_base_steering_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_front_mobile_base_steering_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.300000" />
+      <inertia ixx="1.866399" ixy="0.001076" ixz="0.000397" iyy="1.860265" iyz="0.048037" izz="1.621375" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_front_mobile_base_steering_link.stl" />
+      </geometry>
+      <material name="#1f1f1f" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_front_mobile_base_steering_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_front_wheel_joint" type="continuous">
+    <origin xyz="3.7e-05 -0.0125 -0.127006" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="right_front_mobile_base_steering_link" />
+    <child link="right_front_mobile_base_wheel" />
+  </joint>
+
+  <link name="right_front_mobile_base_wheel">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.686357" />
+      <inertia ixx="0.565384" ixy="-0.000115" ixz="-0.000000" iyy="0.619632" iyz="0.000000" izz="0.565369" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_front_mobile_base_wheel.stl" />
+      </geometry>
+      <material name="#2b2b2b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_front_mobile_base_wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_front_wheel_cover_joint" type="fixed">
+    <origin xyz="0.0 -0.01 -0.13" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="right_front_mobile_base_steering_link" />
+    <child link="right_front_mobile_base_wheel_cover" />
+  </joint>
+
+  <link name="right_front_mobile_base_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.301463" />
+      <inertia ixx="0.133779" ixy="-0.000031" ixz="0.000005" iyy="0.148080" iyz="-0.000052" izz="0.133853" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_front_mobile_base_wheel_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_front_mobile_base_wheel_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_rear_steering_joint" type="revolute">
+    <origin xyz="0.2 -0.165 -0.08" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="mobile_base" />
+    <child link="right_rear_mobile_base_steering_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_rear_mobile_base_steering_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.300000" />
+      <inertia ixx="1.866399" ixy="0.001076" ixz="0.000397" iyy="1.860265" iyz="0.048037" izz="1.621375" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_rear_mobile_base_steering_link.stl" />
+      </geometry>
+      <material name="#1f1f1f" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_rear_mobile_base_steering_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_rear_wheel_joint" type="continuous">
+    <origin xyz="3.7e-05 -0.0125 -0.127006" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="right_rear_mobile_base_steering_link" />
+    <child link="right_rear_mobile_base_wheel" />
+  </joint>
+
+  <link name="right_rear_mobile_base_wheel">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.686357" />
+      <inertia ixx="0.565384" ixy="-0.000115" ixz="-0.000000" iyy="0.619632" iyz="0.000000" izz="0.565369" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_rear_mobile_base_wheel.stl" />
+      </geometry>
+      <material name="#2b2b2b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_rear_mobile_base_wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_rear_wheel_cover_joint" type="fixed">
+    <origin xyz="0.0 -0.01 -0.13" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="right_rear_mobile_base_steering_link" />
+    <child link="right_rear_mobile_base_wheel_cover" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_rear_mobile_base_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.301463" />
+      <inertia ixx="0.133779" ixy="-0.000031" ixz="0.000005" iyy="0.148080" iyz="-0.000052" izz="0.133853" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_rear_mobile_base_wheel_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_rear_mobile_base_wheel_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_cover_joint" type="fixed">
+    <origin xyz="0.0 0.0 -0.005" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="mobile_base" />
+    <child link="mobile_base_cover" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="mobile_base_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.900254" />
+      <inertia ixx="20.340366" ixy="0.000000" ixz="0.000000" iyy="25.066187" iyz="0.000000" izz="44.787355" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/mobile_base_cover.stl" />
+      </geometry>
+      <material name="#b4b4b0" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/mobile_base_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_to_body_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="mobile_base" />
+    <child link="body" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="body">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="5.502120" />
+      <inertia ixx="20.561058" ixy="-0.000000" ixz="0.005177" iyy="16.517273" iyz="-0.021300" izz="12.789986" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/body.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/body.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="pelvis_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.3" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="body" />
+    <child link="pelvis_link" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="pelvis_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.881912" />
+      <inertia ixx="30.535902" ixy="0.000295" ixz="0.213076" iyy="27.180594" iyz="-0.019018" izz="5.143994" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/pelvis_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/pelvis_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_yaw_joint" type="revolute">
+    <origin xyz="0.000538 -0.151299 0.5055" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="pelvis_link" />
+    <child link="right_shoulder_yaw_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.457562" />
+      <inertia ixx="0.134879" ixy="-0.000060" ixz="-0.000007" iyy="0.128138" iyz="0.000005" izz="0.140502" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_shoulder_yaw_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_shoulder_yaw_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.0 -0.0563 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="right_shoulder_yaw_link" />
+    <child link="right_shoulder_pitch_link" />
+    <limit lower="-3.3" upper="0.16" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.450000" />
+      <inertia ixx="0.363920" ixy="0.000201" ixz="-0.001165" iyy="0.372580" iyz="0.004874" izz="0.336845" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_shoulder_pitch_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_shoulder_pitch_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_upper_arm_joint" type="revolute">
+    <origin xyz="0.0 -0.0 -0.1192" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="right_shoulder_pitch_link" />
+    <child link="right_upper_arm_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_upper_arm_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.750000" />
+      <inertia ixx="0.682884" ixy="-0.001489" ixz="0.032581" iyy="0.677748" iyz="-0.010519" izz="0.583428" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_upper_arm_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_upper_arm_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_elbow_joint" type="revolute">
+    <origin xyz="0.016004 -0.0 -0.133537" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="right_upper_arm_link" />
+    <child link="right_forearm_link" />
+    <limit lower="-2.6" upper="0.008" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_forearm_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.550000" />
+      <inertia ixx="0.506298" ixy="-0.000749" ixz="-0.003819" iyy="0.495847" iyz="-0.000587" izz="0.457955" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_forearm_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_forearm_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_wrist_joint" type="revolute">
+    <origin xyz="-0.0156 -4.4e-05 -0.1123" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="right_forearm_link" />
+    <child link="right_wrist_joint_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_wrist_joint_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.450000" />
+      <inertia ixx="0.411941" ixy="-0.000049" ixz="-0.000055" iyy="0.411834" iyz="0.000654" izz="0.319287" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_wrist_joint_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_wrist_joint_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_tool_mount_joint" type="revolute">
+    <origin xyz="0.0 -0.0 -0.101" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="right_wrist_joint_link" />
+    <child link="right_gripper_base_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_gripper_base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.144267" />
+      <inertia ixx="0.086237" ixy="0.000014" ixz="-0.001656" iyy="0.082655" iyz="0.000061" izz="0.089278" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_base_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_base_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_motor_joint" type="revolute">
+    <origin xyz="0.009 -0.015606 -0.0368" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="right_gripper_base_link" />
+    <child link="right_gripper_motor_link" />
+    <limit lower="-0.6" upper="0.0" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_gripper_motor_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.013044" />
+      <inertia ixx="0.008002" ixy="0.000589" ixz="0.001322" iyy="0.008568" iyz="0.000586" izz="0.007831" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_motor_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_motor_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_driven_joint" type="revolute">
+    <origin xyz="0.009 0.015594 -0.0368" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="right_gripper_base_link" />
+    <child link="right_gripper_driven_link" />
+    <limit lower="0.0" upper="0.6" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_gripper_driven_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.013044" />
+      <inertia ixx="0.007345" ixy="0.000120" ixz="0.001192" iyy="0.007748" iyz="-0.000099" izz="0.006860" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_driven_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_driven_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_outer_right_joint" type="revolute">
+    <origin xyz="0.009 -0.04555 -0.0368" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="right_gripper_base_link" />
+    <child link="right_gripper_outer_right_link" />
+    <limit lower="-0.6" upper="0.0" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_gripper_outer_right_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008587" />
+      <inertia ixx="0.011121" ixy="-0.000000" ixz="-0.000001" iyy="0.011113" iyz="0.000107" izz="0.008829" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_outer_right_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_outer_right_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_outer_left_joint" type="revolute">
+    <origin xyz="0.009 0.04555 -0.0368" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="right_gripper_base_link" />
+    <child link="right_gripper_outer_left_link" />
+    <limit lower="0.0" upper="0.6" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_gripper_outer_left_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008587" />
+      <inertia ixx="0.011121" ixy="0.000000" ixz="-0.000001" iyy="0.011113" iyz="-0.000107" izz="0.008829" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_outer_left_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_outer_left_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_right_jaw_joint" type="prismatic">
+    <origin xyz="0.02 -0.01 -0.08" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="right_gripper_base_link" />
+    <child link="right_gripper_right_jaw_link" />
+    <limit lower="-0.02" upper="0.0" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_gripper_right_jaw_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.101226" />
+      <inertia ixx="0.088115" ixy="0.000193" ixz="0.000218" iyy="0.085833" iyz="0.005146" izz="0.071091" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_right_jaw_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_right_jaw_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_left_jaw_joint" type="prismatic">
+    <origin xyz="0.02 0.01 -0.08" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="right_gripper_base_link" />
+    <child link="right_gripper_left_jaw_link" />
+    <limit lower="0.0" upper="0.02" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_gripper_left_jaw_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.101226" />
+      <inertia ixx="0.081542" ixy="-0.000179" ixz="0.000201" iyy="0.079430" iyz="-0.004762" izz="0.065788" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_left_jaw_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_gripper_left_jaw_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_forearm_cover_joint" type="fixed">
+    <origin xyz="-0.01 -0.0455 -0.02" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="right_forearm_link" />
+    <child link="right_forearm_cover" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_forearm_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.002975" />
+      <inertia ixx="0.003590" ixy="-0.000531" ixz="-0.000716" iyy="0.003894" iyz="0.000413" izz="0.003542" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_forearm_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_forearm_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_cover_joint" type="fixed">
+    <origin xyz="0.05 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="right_shoulder_pitch_link" />
+    <child link="right_shoulder_cover" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_shoulder_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004068" />
+      <inertia ixx="4.447189" ixy="0.000000" ixz="0.000000" iyy="4.398793" iyz="0.603209" izz="3.605912" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_shoulder_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_shoulder_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_cap_joint" type="fixed">
+    <origin xyz="-0.04 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="right_shoulder_pitch_link" />
+    <child link="right_shoulder_cap" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_shoulder_cap">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.010305" />
+      <inertia ixx="0.002391" ixy="-0.000052" ixz="0.000000" iyy="0.002170" iyz="0.000001" izz="0.002191" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_shoulder_cap.stl" />
+      </geometry>
+      <material name="#141414" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_shoulder_cap.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_yaw_joint" type="revolute">
+    <origin xyz="0.000538 0.151299 0.5055" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="pelvis_link" />
+    <child link="left_shoulder_yaw_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_shoulder_yaw_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.457562" />
+      <inertia ixx="0.134879" ixy="0.000060" ixz="-0.000007" iyy="0.128138" iyz="-0.000005" izz="0.140502" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_shoulder_yaw_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_shoulder_yaw_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_pitch_joint" type="revolute">
+    <origin xyz="0.0 0.0563 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="left_shoulder_yaw_link" />
+    <child link="left_shoulder_pitch_link" />
+    <limit lower="-0.16" upper="3.3" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_shoulder_pitch_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.450000" />
+      <inertia ixx="0.363920" ixy="-0.000201" ixz="-0.001165" iyy="0.372580" iyz="-0.004874" izz="0.336845" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_shoulder_pitch_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_shoulder_pitch_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_upper_arm_joint" type="revolute">
+    <origin xyz="0.0 0.0 -0.1192" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="left_shoulder_pitch_link" />
+    <child link="left_upper_arm_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_upper_arm_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.750000" />
+      <inertia ixx="0.682884" ixy="0.001489" ixz="0.032581" iyy="0.677748" iyz="0.010519" izz="0.583428" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_upper_arm_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_upper_arm_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_elbow_joint" type="revolute">
+    <origin xyz="0.016004 0.0 -0.133537" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="left_upper_arm_link" />
+    <child link="left_forearm_link" />
+    <limit lower="-2.6" upper="0.008" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_forearm_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.550000" />
+      <inertia ixx="0.506298" ixy="0.000749" ixz="-0.003819" iyy="0.495847" iyz="0.000587" izz="0.457955" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_forearm_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_forearm_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wrist_joint" type="revolute">
+    <origin xyz="-0.0156 4.4e-05 -0.1123" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="left_forearm_link" />
+    <child link="left_wrist_joint_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_wrist_joint_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.450000" />
+      <inertia ixx="0.411941" ixy="0.000049" ixz="-0.000055" iyy="0.411834" iyz="-0.000654" izz="0.319287" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_wrist_joint_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_wrist_joint_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_tool_mount_joint" type="revolute">
+    <origin xyz="0.0 0.0 -0.101" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 0.0 1.0" />
+    <parent link="left_wrist_joint_link" />
+    <child link="left_gripper_base_link" />
+    <limit lower="-3.14159" upper="3.14159" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_gripper_base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.144267" />
+      <inertia ixx="0.074292" ixy="-0.000049" ixz="-0.003165" iyy="0.050173" iyz="-0.000109" izz="0.088602" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_base_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_base_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_motor_joint" type="revolute">
+    <origin xyz="0.009 0.015606 -0.0368" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="left_gripper_base_link" />
+    <child link="left_gripper_motor_link" />
+    <limit lower="0.0" upper="0.6" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_gripper_motor_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.013044" />
+      <inertia ixx="0.004907" ixy="0.000026" ixz="0.000150" iyy="0.004556" iyz="0.000170" izz="0.000751" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_motor_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_motor_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_driven_joint" type="revolute">
+    <origin xyz="0.009 -0.015594 -0.0368" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="left_gripper_base_link" />
+    <child link="left_gripper_driven_link" />
+    <limit lower="-0.6" upper="0.0" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_gripper_driven_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.013044" />
+      <inertia ixx="0.004907" ixy="0.000026" ixz="0.000150" iyy="0.004556" iyz="0.000170" izz="0.000751" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_driven_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_driven_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_outer_left_joint" type="revolute">
+    <origin xyz="0.009 0.04555 -0.0368" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="left_gripper_base_link" />
+    <child link="left_gripper_outer_left_link" />
+    <limit lower="0.0" upper="0.6" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_gripper_outer_left_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008587" />
+      <inertia ixx="0.011729" ixy="0.000006" ixz="-0.001596" iyy="0.011872" iyz="-0.000107" izz="0.009588" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_outer_left_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_outer_left_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_outer_right_joint" type="revolute">
+    <origin xyz="0.009 -0.04555 -0.0368" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="left_gripper_base_link" />
+    <child link="left_gripper_outer_right_link" />
+    <limit lower="-0.6" upper="0.0" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_gripper_outer_right_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008587" />
+      <inertia ixx="0.001743" ixy="-0.000000" ixz="-0.000000" iyy="0.001645" iyz="-0.000211" izz="0.000291" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_outer_right_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_outer_right_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_left_jaw_joint" type="prismatic">
+    <origin xyz="0.02 0.01 -0.08" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="left_gripper_base_link" />
+    <child link="left_gripper_left_jaw_link" />
+    <limit lower="0.0" upper="0.02" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_gripper_left_jaw_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.101226" />
+      <inertia ixx="0.081542" ixy="-0.000179" ixz="0.000201" iyy="0.079430" iyz="-0.004762" izz="0.065788" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_left_jaw_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_left_jaw_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_right_jaw_joint" type="prismatic">
+    <origin xyz="0.02 -0.01 -0.08" rpy="0.0 0.0 0.0" />
+    <axis xyz="0.0 1.0 0.0" />
+    <parent link="left_gripper_base_link" />
+    <child link="left_gripper_right_jaw_link" />
+    <limit lower="-0.02" upper="0.0" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_gripper_right_jaw_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.101226" />
+      <inertia ixx="0.042458" ixy="-0.000151" ixz="0.000118" iyy="0.039232" iyz="0.006145" izz="0.009167" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_right_jaw_link.stl" />
+      </geometry>
+      <material name="#787878" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_gripper_right_jaw_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_forearm_cover_joint" type="fixed">
+    <origin xyz="-0.01 0.0455 -0.02" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="left_forearm_link" />
+    <child link="left_forearm_cover" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_forearm_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.002975" />
+      <inertia ixx="0.003590" ixy="0.000531" ixz="-0.000716" iyy="0.003894" iyz="-0.000413" izz="0.003542" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_forearm_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_forearm_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_cover_joint" type="fixed">
+    <origin xyz="0.05 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="left_shoulder_pitch_link" />
+    <child link="left_shoulder_cover" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_shoulder_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004068" />
+      <inertia ixx="4.447189" ixy="-0.000000" ixz="0.000000" iyy="4.398793" iyz="-0.603209" izz="3.605912" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_shoulder_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_shoulder_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_cap_joint" type="fixed">
+    <origin xyz="-0.04 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="left_shoulder_pitch_link" />
+    <child link="left_shoulder_cap" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_shoulder_cap">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.010305" />
+      <inertia ixx="0.002391" ixy="0.000052" ixz="0.000000" iyy="0.002170" iyz="-0.000001" izz="0.002191" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_shoulder_cap.stl" />
+      </geometry>
+      <material name="#141414" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_shoulder_cap.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.22" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="pelvis_link" />
+    <child link="upper_body" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="upper_body">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="4.335827" />
+      <inertia ixx="23.603745" ixy="-0.001334" ixz="-0.295116" iyy="22.011773" iyz="-0.001717" izz="18.229546" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/upper_body.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/upper_body.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="neck_joint" type="fixed">
+    <origin xyz="0.06 -0.0 0.37" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="upper_body" />
+    <child link="neck_link" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="neck_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.001523" />
+      <inertia ixx="0.004483" ixy="-0.000012" ixz="-0.000427" iyy="0.006233" iyz="-0.000004" izz="0.002655" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/neck_link.stl" />
+      </geometry>
+      <material name="#2b2b2b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/neck_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_head_joint" type="fixed">
+    <origin xyz="0.04 0.0525 0.07" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="neck_link" />
+    <child link="left_head" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="left_head">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.337585" />
+      <inertia ixx="0.527568" ixy="0.000720" ixz="0.035579" iyy="0.579134" iyz="-0.002457" izz="0.518884" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_head.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/left_head.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_head_joint" type="fixed">
+    <origin xyz="0.04 -0.0515 0.07" rpy="0.0 0.0 0.0" />
+    <axis xyz="1.0 0.0 0.0" />
+    <parent link="neck_link" />
+    <child link="right_head" />
+    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
+  </joint>
+
+  <link name="right_head">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.337585" />
+      <inertia ixx="0.527568" ixy="-0.000720" ixz="0.035579" iyy="0.579134" iyz="0.002457" izz="0.518884" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_head.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://mate_p1w_description/meshes/right_head.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+</robot>
