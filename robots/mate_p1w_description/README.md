@@ -43,7 +43,12 @@ ros2 launch mate_p1w_description mate_p1w_display.launch.py
 ```
 
 - RViz2：3D モデル表示  
-- Joint State Publisher GUI：関節角度操作  
+
+<img width="1552" height="814" alt="mate_p1w_display launch py" src="https://github.com/user-attachments/assets/5a17fd72-6448-47b6-b21e-32066d7ada01" />
+
+- Joint State Publisher GUI：関節角度操作
+
+<img width="1552" height="822" alt="mate_p1w_display launch py jointstatepublisher" src="https://github.com/user-attachments/assets/1aed9821-61c1-4520-ba94-c8eb299fc31e" />
 
 ---
 
