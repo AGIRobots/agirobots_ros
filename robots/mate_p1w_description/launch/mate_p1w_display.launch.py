@@ -44,7 +44,17 @@ def generate_launch_description():
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
             output='screen',
-            parameters=[{'use_sim_time': use_sim_time}],
+            parameters=[
+                {'use_sim_time': use_sim_time},
+                {
+                    'excluded_joints': [
+                        'left_front_wheel_joint',
+                        'left_rear_wheel_joint',
+                        'right_front_wheel_joint',
+                        'right_rear_wheel_joint'
+                    ]
+                }
+            ],
             condition=conditions.IfCondition(use_gui)
         ),
 
@@ -53,7 +63,7 @@ def generate_launch_description():
             executable='rviz2',
             name='rviz2',
             output='screen',
-            arguments=['-d', PathJoinSubstitution([pkg_share, 'rviz', 'display.rviz'])],
+            arguments=['-d', PathJoinSubstitution([pkg_share, 'rviz', 'mate_p1w_display.rviz'])],
             parameters=[{'use_sim_time': use_sim_time}]
         ),
     ])

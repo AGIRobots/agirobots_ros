@@ -39,7 +39,7 @@ source install/setup.bash
 ## 使用方法
 
 ```bash
-ros2 launch mate_p1w_description display.launch.py
+ros2 launch mate_p1w_description mate_p1w_display.launch.py
 ```
 
 - RViz2：3D モデル表示  
@@ -48,7 +48,7 @@ ros2 launch mate_p1w_description display.launch.py
 
 - Joint State Publisher GUI：関節角度操作
 
-<img width="1552" height="822" alt="mate_p1w_display launch py jointstatepublisher" src="https://github.com/user-attachments/assets/1aed9821-61c1-4520-ba94-c8eb299fc31e" />
+<img width="2398" height="1260" alt="mate_p1w_display launch py jointstatepublisher" src="https://github.com/user-attachments/assets/27dd934a-8aad-40a9-8a8f-c63c69be7d45" />
 
 ---
 
