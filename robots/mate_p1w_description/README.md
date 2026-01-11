@@ -39,7 +39,7 @@ source install/setup.bash
 ## 使用方法
 
 ```bash
-ros2 launch mate_p1w_description mate_p1w_display.launch.py
+ros2 launch mate_p1w_description display.launch.py
 ```
 
 - RViz2：3D モデル表示  
