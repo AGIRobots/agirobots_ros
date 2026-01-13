@@ -56,7 +56,6 @@ ros2 launch mate_p1w_description display.launch.py
 RViz が起動し、Mate P1W のロボットモデルが表示されます。
 
 ## パッケージ構成（Packages）
-mate_p1w_description
 
 Mate P1W 用のロボット記述パッケージです。
 
