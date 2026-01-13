@@ -84,6 +84,3 @@ Mate P1W 用のロボット記述パッケージです。
 
 TBD
 
-Unitree 風に Dependencies / FAQ を足す
-
-どこまでやるか、指示ください。
