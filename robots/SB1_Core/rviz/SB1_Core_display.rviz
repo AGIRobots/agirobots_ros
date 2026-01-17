@@ -1,0 +1,141 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /RobotModel1
+  - Class: rviz_common/Selection
+    Name: Selection
+  - Class: rviz_common/Views
+    Name: Views
+
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Grid
+      Reference Frame: <Fixed Frame>
+    - Class: rviz_default_plugins/RobotModel
+      Description Topic: robot_description
+      Enabled: true
+      Name: RobotModel
+      Visual Enabled: true
+      Collision Enabled: false
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Name: TF
+      All Enabled: false
+      Frames:
+        All: false
+
+        base_link:
+          Value: true
+        base_top_plate:
+          Value: false
+
+        front_left_swerve_unit:
+          Value: true
+        front_left_wheel_motor:
+          Value: false
+        front_left_wheel_tire:
+          Value: true
+        front_left_wheel_cover:
+          Value: false
+
+        front_right_swerve_unit:
+          Value: true
+        front_right_wheel_motor:
+          Value: false
+        front_right_wheel_tire:
+          Value: true
+        front_right_wheel_cover:
+          Value: false
+
+        rear_left_swerve_unit:
+          Value: true
+        rear_left_wheel_motor:
+          Value: false
+        rear_left_wheel_tire:
+          Value: true
+        rear_left_wheel_cover:
+          Value: false
+
+        rear_right_swerve_unit:
+          Value: true
+        rear_right_wheel_motor:
+          Value: false
+        rear_right_wheel_tire:
+          Value: true
+        rear_right_wheel_cover:
+          Value: false
+
+        base_bottom_plate:
+          Value: false
+        base_cover:
+          Value: false
+
+        camera_d435_housing:
+          Value: false
+        camera_d435_sensor:
+          Value: false
+
+        front_mid360_base:
+          Value: false
+        front_mid360_sensor:
+          Value: false
+        front_mid360_cover:
+          Value: false
+
+        rear_mid360_base:
+          Value: false
+        rear_mid360_sensor:
+          Value: false
+        rear_mid360_cover:
+          Value: false
+
+        speaker:
+          Value: false
+
+        front_right_emergency_button_base:
+          Value: false
+        front_right_emergency_button:
+          Value: false
+
+        front_left_emergency_button_base:
+          Value: false
+        front_left_emergency_button:
+          Value: false
+
+        base_slot_track_rail:
+          Value: false
+      Marker Scale: 0.5
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        Space: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: base_link
+    Frame Rate: 30
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+    - Class: rviz_default_plugins/SetInitialPose
+    - Class: rviz_default_plugins/SetGoal
+    - Class: rviz_default_plugins/PublishPoint
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Current View
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz_default_plugins)
+
+Window Geometry:
+  Height: 800
+  Width: 1200

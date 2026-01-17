@@ -1,0 +1,16 @@
+# ===== ROS2 / colcon build artifacts =====
+build/
+install/
+log/
+
+# ===== Python =====
+__pycache__/
+*.pyc
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Editor =====
+.vscode/
+.idea/

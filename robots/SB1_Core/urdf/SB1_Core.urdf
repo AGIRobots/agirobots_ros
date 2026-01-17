@@ -1,0 +1,951 @@
+<?xml version="1.0"?>
+<robot name="SB1_Core">
+
+<!-- material color setting -->
+<material name="#ffffff">
+  <color rgba="1.000 1.000 1.000 1.0"/>
+</material>
+<material name="#343639">
+  <color rgba="0.204 0.212 0.224 1.0"/>
+</material>
+<material name="#ccccc9">
+  <color rgba="0.800 0.800 0.792 1.0"/>
+</material>
+<material name="#ada8b9">
+  <color rgba="0.682 0.659 0.729 1.0"/>
+</material>
+<material name="#d2d2d2">
+  <color rgba="0.827 0.827 0.827 1.0"/>
+</material>
+<material name="#000000">
+  <color rgba="0.000 0.000 0.000 1.0"/>
+</material>
+<material name="#ff0000">
+  <color rgba="1.000 0.000 0.000 1.0"/>
+</material>
+<material name="#a2a2a2">
+  <color rgba="0.639 0.639 0.639 1.0"/>
+</material>
+<material name="#09090a">
+  <color rgba="0.039 0.039 0.043 1.0"/>
+</material>
+<material name="#0b0b0b">
+  <color rgba="0.047 0.047 0.047 1.0"/>
+</material>
+<material name="#afafaf">
+  <color rgba="0.690 0.690 0.690 1.0"/>
+</material>
+<material name="#155af8">
+  <color rgba="0.086 0.353 0.973 1.0"/>
+</material>
+<material name="#0e0f14">
+  <color rgba="0.055 0.059 0.082 1.0"/>
+</material>
+
+  <link name="base_link">
+  </link>
+
+  <joint name="mobile_base_joint" type="fixed">
+    <origin xyz="0 0 0.304" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="base_top_plate"/>
+  </joint>
+
+  <link name="base_top_plate">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="4.990542"/>
+      <inertia ixx="48.696708" ixy="-0.022953" ixz="0.000000" iyy="62.315573" iyz="0.000000" izz="110.974568"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/base_top_plate.stl"/>
+      </geometry>
+      <material name="#343639"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/base_top_plate.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_cover_joint" type="fixed">
+    <origin xyz="0.0 0.0 -0.006" rpy="0.0 0.0 0.0"/>
+    <parent link="base_top_plate"/>
+    <child link="base_cover"/>
+  </joint>
+
+  <link name="base_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.882015"/>
+      <inertia ixx="17.680751" ixy="-0.086606" ixz="-0.121284" iyy="26.121521" iyz="-0.007096" izz="43.458694"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/base_cover.stl"/>
+      </geometry>
+      <material name="#ccccc9"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/base_cover.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_camera_housing_joint" type="fixed">
+    <origin xyz="0.3 0.0 -0.015" rpy="0.0 0.0 0.0"/>
+    <parent link="base_cover"/>
+    <child link="camera_d435_housing"/>
+  </joint>
+
+  <link name="camera_d435_housing">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.200000"/>
+      <inertia ixx="0.050039" ixy="0.000013" ixz="0.000001" iyy="0.010526" iyz="0.000065" izz="0.051553"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/camera_d435_housing.stl"/>
+      </geometry>
+      <material name="#d2d2d2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/camera_d435_housing.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_housing_sensor_joint" type="fixed">
+    <origin xyz="0.0 0.0 -0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="camera_d435_housing"/>
+    <child link="camera_d435_sensor"/>
+  </joint>
+
+  <link name="camera_d435_sensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.050000"/>
+      <inertia ixx="0.301856" ixy="0.000994" ixz="0.000000" iyy="6.983010" iyz="0.000000" izz="7.277867"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/camera_d435_sensor.stl"/>
+      </geometry>
+      <material name="#000000"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/camera_d435_sensor.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_front_lidar_base_joint" type="fixed">
+    <origin xyz="0.25 0.0 -0.0275" rpy="0.0 0.0 0.0"/>
+    <parent link="base_cover"/>
+    <child link="front_mid360_base"/>
+  </joint>
+
+  <link name="front_mid360_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.400000"/>
+      <inertia ixx="0.098896" ixy="0.000053" ixz="0.002586" iyy="0.115546" iyz="0.000199" izz="0.154728"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_base.stl"/>
+      </geometry>
+      <material name="#afafaf"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_base.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_lidar_base_sensor_joint" type="fixed">
+    <origin xyz="0.0 0.0 -0.0395" rpy="0.0 0.0 0.0"/>
+    <parent link="front_mid360_base"/>
+    <child link="front_mid360_sensor"/>
+  </joint>
+
+  <link name="front_mid360_sensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.050000"/>
+      <inertia ixx="0.004322" ixy="-0.000000" ixz="0.000000" iyy="0.004238" iyz="0.000198" izz="0.005637"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_sensor.stl"/>
+      </geometry>
+      <material name="#155af8"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_sensor.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_rear_lidar_base_joint" type="fixed">
+    <origin xyz="-0.25 0.0 -0.0275" rpy="0.0 0.0 0.0"/>
+    <parent link="base_cover"/>
+    <child link="rear_mid360_base"/>
+  </joint>
+
+  <link name="rear_mid360_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.400000"/>
+      <inertia ixx="0.166873" ixy="0.000847" ixz="0.001567" iyy="0.169140" iyz="-0.000300" izz="0.179625"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 3.14159"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_base.stl"/>
+      </geometry>
+      <material name="#afafaf"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 3.14159"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_base.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_lidar_base_sensor_joint" type="fixed">
+    <origin xyz="0.0 -0.0 -0.0395" rpy="0.0 0.0 0.0"/>
+    <parent link="rear_mid360_base"/>
+    <child link="rear_mid360_sensor"/>
+  </joint>
+
+  <link name="rear_mid360_sensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.050000"/>
+      <inertia ixx="0.004419" ixy="-0.000000" ixz="-0.000000" iyy="0.004407" iyz="-0.000081" izz="0.004635"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_sensor.stl"/>
+      </geometry>
+      <material name="#155af8"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_sensor.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_bottom_plate_joint" type="fixed">
+    <origin xyz="0.0 0.0 -0.06" rpy="0.0 0.0 0.0"/>
+    <parent link="base_cover"/>
+    <child link="base_bottom_plate"/>
+  </joint>
+
+  <link name="base_bottom_plate">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="4.223212"/>
+      <inertia ixx="42.888625" ixy="-0.000688" ixz="0.000659" iyy="51.764424" iyz="-0.000384" izz="94.620526"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/base_bottom_plate.stl"/>
+      </geometry>
+      <material name="#343639"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/base_bottom_plate.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_front_steering_joint" type="revolute">
+    <origin xyz="0.2 -0.165 0.0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="base_bottom_plate"/>
+    <child link="front_right_swerve_unit"/>
+    <limit lower="-3.1415926535" upper="3.1415926535" effort="0" velocity="0"/>
+  </joint>
+
+  <link name="front_right_swerve_unit">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="2.500000"/>
+      <inertia ixx="5.645400" ixy="-0.000007" ixz="0.000712" iyy="5.494431" iyz="0.761841" izz="5.158045"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_swerve_unit.stl"/>
+      </geometry>
+      <material name="#09090a"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_swerve_unit.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_front_wheel_joint" type="fixed">
+    <origin xyz="8e-06 0.0785 -0.1376" rpy="0.0 0.0 0.0"/>
+    <parent link="front_right_swerve_unit"/>
+    <child link="front_right_wheel_motor"/>
+  </joint>
+
+  <link name="front_right_wheel_motor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="3.043953"/>
+      <inertia ixx="3.807828" ixy="0.000148" ixz="-0.000002" iyy="4.046208" iyz="-0.000518" izz="3.807930"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_motor.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_motor.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_front_drive_joint" type="continuous">
+    <origin xyz="0.0 -0.101 0.0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 1 0"/>
+    <parent link="front_right_wheel_motor"/>
+    <child link="front_right_wheel_tire"/>
+  </joint>
+
+  <link name="front_right_wheel_tire">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.000000"/>
+      <inertia ixx="0.823746" ixy="0.000000" ixz="0.000000" iyy="0.902785" iyz="0.000000" izz="0.823724"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_tire.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_tire.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_front_wheel_cover_joint" type="fixed">
+    <origin xyz="0.0 -0.111 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="front_right_wheel_motor"/>
+    <child link="front_right_wheel_cover"/>
+  </joint>
+
+  <link name="front_right_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.078001"/>
+      <inertia ixx="0.239691" ixy="0.000004" ixz="0.000151" iyy="0.225503" iyz="-0.000534" izz="0.239640"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_cover.stl"/>
+      </geometry>
+      <material name="#ffffff"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_cover.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_rear_steering_joint" type="revolute">
+    <origin xyz="-0.2 -0.165 0.0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="base_bottom_plate"/>
+    <child link="rear_right_swerve_unit"/>
+    <limit lower="-3.1415926535" upper="3.1415926535" effort="0" velocity="0"/>
+  </joint>
+
+  <link name="rear_right_swerve_unit">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="2.500000"/>
+      <inertia ixx="5.769726" ixy="0.000007" ixz="-0.000728" iyy="5.615432" iyz="0.778619" izz="5.271638"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_right_swerve_unit.stl"/>
+      </geometry>
+      <material name="#09090a"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_right_swerve_unit.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_rear_wheel_joint" type="fixed">
+    <origin xyz="-8e-06 0.0785 -0.1376" rpy="0.0 0.0 0.0"/>
+    <parent link="rear_right_swerve_unit"/>
+    <child link="rear_right_wheel_motor"/>
+  </joint>
+
+  <link name="rear_right_wheel_motor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="3.043953"/>
+      <inertia ixx="1.493808" ixy="-0.000058" ixz="0.000001" iyy="1.587324" iyz="-0.000203" izz="1.493848"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_motor.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_motor.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_rear_drive_joint" type="continuous">
+    <origin xyz="-0.0 -0.101 0.0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 1 0"/>
+    <parent link="rear_right_wheel_motor"/>
+    <child link="rear_right_wheel_tire"/>
+  </joint>
+
+  <link name="rear_right_wheel_tire">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.000000"/>
+      <inertia ixx="0.823746" ixy="-0.000000" ixz="0.000000" iyy="0.902785" iyz="0.000000" izz="0.823724"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_tire.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_tire.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_rear_wheel_cover_joint" type="fixed">
+    <origin xyz="-0.0 -0.111 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rear_right_wheel_motor"/>
+    <child link="rear_right_wheel_cover"/>
+  </joint>
+
+  <link name="rear_right_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.078001"/>
+      <inertia ixx="0.239691" ixy="-0.000004" ixz="-0.000151" iyy="0.225503" iyz="-0.000534" izz="0.239640"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_cover.stl"/>
+      </geometry>
+      <material name="#ffffff"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_cover.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_rear_steering_joint" type="revolute">
+    <origin xyz="-0.2 0.165 0.0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="base_bottom_plate"/>
+    <child link="rear_left_swerve_unit"/>
+    <limit lower="-3.1415926535" upper="3.1415926535" effort="0" velocity="0"/>
+  </joint>
+
+  <link name="rear_left_swerve_unit">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="2.500000"/>
+      <inertia ixx="6.398750" ixy="-0.000008" ixz="-0.000807" iyy="6.227634" iyz="-0.863505" izz="5.846360"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_left_swerve_unit.stl"/>
+      </geometry>
+      <material name="#09090a"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_left_swerve_unit.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_rear_wheel_joint" type="fixed">
+    <origin xyz="-8e-06 -0.0785 -0.1376" rpy="0.0 0.0 0.0"/>
+    <parent link="rear_left_swerve_unit"/>
+    <child link="rear_left_wheel_motor"/>
+  </joint>
+
+  <link name="rear_left_wheel_motor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="3.043953"/>
+      <inertia ixx="1.500927" ixy="0.000058" ixz="0.000001" iyy="1.594889" iyz="0.000204" izz="1.500967"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_motor.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_motor.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_rear_drive_joint" type="continuous">
+    <origin xyz="-0.0 0.101 0.0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 1 0"/>
+    <parent link="rear_left_wheel_motor"/>
+    <child link="rear_left_wheel_tire"/>
+  </joint>
+
+  <link name="rear_left_wheel_tire">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.000000"/>
+      <inertia ixx="0.823746" ixy="0.000000" ixz="0.000000" iyy="0.902785" iyz="0.000000" izz="0.823724"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_tire.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_tire.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_rear_wheel_cover_joint" type="fixed">
+    <origin xyz="-0.0 0.111 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="rear_left_wheel_motor"/>
+    <child link="rear_left_wheel_cover"/>
+  </joint>
+
+  <link name="rear_left_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.078001"/>
+      <inertia ixx="0.239691" ixy="0.000004" ixz="-0.000151" iyy="0.225503" iyz="0.000534" izz="0.239640"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_cover.stl"/>
+      </geometry>
+      <material name="#ffffff"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_cover.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_front_steering_joint" type="revolute">
+    <origin xyz="0.2 0.165 0.0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 0 1"/>
+    <parent link="base_bottom_plate"/>
+    <child link="front_left_swerve_unit"/>
+    <limit lower="-3.1415926535" upper="3.1415926535" effort="0" velocity="0"/>
+  </joint>
+
+  <link name="front_left_swerve_unit">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="2.500000"/>
+      <inertia ixx="6.299649" ixy="0.000007" ixz="0.000795" iyy="6.131184" iyz="-0.850132" izz="5.755814"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_swerve_unit.stl"/>
+      </geometry>
+      <material name="#09090a"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_swerve_unit.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_front_wheel_joint" type="fixed">
+    <origin xyz="8e-06 -0.0785 -0.1376" rpy="0.0 0.0 0.0"/>
+    <parent link="front_left_swerve_unit"/>
+    <child link="front_left_wheel_motor"/>
+  </joint>
+
+  <link name="front_left_wheel_motor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="3.043953"/>
+      <inertia ixx="3.732870" ixy="-0.000145" ixz="-0.000002" iyy="3.966557" iyz="0.000508" izz="3.732969"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_motor.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_motor.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_front_drive_joint" type="continuous">
+    <origin xyz="0.0 0.101 0.0" rpy="0.0 0.0 0.0"/>
+    <axis xyz="0 1 0"/>
+    <parent link="front_left_wheel_motor"/>
+    <child link="front_left_wheel_tire"/>
+  </joint>
+
+  <link name="front_left_wheel_tire">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.000000"/>
+      <inertia ixx="0.823746" ixy="-0.000000" ixz="0.000000" iyy="0.902785" iyz="0.000000" izz="0.823724"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_tire.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_tire.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_front_wheel_cover_joint" type="fixed">
+    <origin xyz="0.0 0.111 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="front_left_wheel_motor"/>
+    <child link="front_left_wheel_cover"/>
+  </joint>
+
+  <link name="front_left_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.078001"/>
+      <inertia ixx="0.060361" ixy="-0.000000" ixz="0.000022" iyy="0.119002" iyz="-0.000002" izz="0.060370"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_cover.stl"/>
+      </geometry>
+      <material name="#ffffff"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_cover.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_speaker_joint" type="fixed">
+    <origin xyz="0.12 0.0 -0.006" rpy="0.0 0.0 0.0"/>
+    <parent link="base_bottom_plate"/>
+    <child link="speaker"/>
+  </joint>
+
+  <link name="speaker">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.050000"/>
+      <inertia ixx="0.042483" ixy="-0.000004" ixz="0.000000" iyy="0.123280" iyz="0.000000" izz="0.160350"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/speaker.stl"/>
+      </geometry>
+      <material name="#0e0f14"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/speaker.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_front_lidar_cover_joint" type="fixed">
+    <origin xyz="0.25 0.0 -0.006" rpy="0.0 0.0 0.0"/>
+    <parent link="base_bottom_plate"/>
+    <child link="front_mid360_cover"/>
+  </joint>
+
+  <link name="front_mid360_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.048432"/>
+      <inertia ixx="0.077963" ixy="-0.000000" ixz="0.000012" iyy="0.077963" iyz="0.000096" izz="0.109309"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_cover.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_cover.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_rear_lidar_cover_joint" type="fixed">
+    <origin xyz="-0.25 0.0 -0.006" rpy="0.0 0.0 0.0"/>
+    <parent link="base_bottom_plate"/>
+    <child link="rear_mid360_cover"/>
+  </joint>
+
+  <link name="rear_mid360_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.048432"/>
+      <inertia ixx="0.077963" ixy="-0.000000" ixz="0.000012" iyy="0.077963" iyz="0.000096" izz="0.109309"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_cover.stl"/>
+      </geometry>
+      <material name="#0b0b0b"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/mid360_cover.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_right_front_emergency_stop_base_joint" type="fixed">
+    <origin xyz="0.0 -0.215 -0.006" rpy="0.0 0.0 0.0"/>
+    <parent link="base_top_plate"/>
+    <child link="front_right_emergency_button_base"/>
+  </joint>
+
+  <link name="front_right_emergency_button_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.210896"/>
+      <inertia ixx="0.052431" ixy="0.000232" ixz="0.000077" iyy="0.053593" iyz="0.000000" izz="0.045002"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_emergency_button_base.stl"/>
+      </geometry>
+      <material name="#a2a2a2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_emergency_button_base.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_front_emergency_stop_button_joint" type="fixed">
+    <origin xyz="0.0 -0.0 0.018" rpy="0.0 0.0 0.0"/>
+    <parent link="front_right_emergency_button_base"/>
+    <child link="front_right_emergency_button"/>
+  </joint>
+
+  <link name="front_right_emergency_button">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.054164"/>
+      <inertia ixx="0.004721" ixy="-0.000000" ixz="0.000009" iyy="0.004721" iyz="0.000000" izz="0.004863"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_emergency_button.stl"/>
+      </geometry>
+      <material name="#ff0000"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_right_emergency_button.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_left_front_emergency_stop_base_joint" type="fixed">
+    <origin xyz="0.0 0.215 -0.006" rpy="0.0 0.0 0.0"/>
+    <parent link="base_top_plate"/>
+    <child link="front_left_emergency_button_base"/>
+  </joint>
+
+  <link name="front_left_emergency_button_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.210896"/>
+      <inertia ixx="0.047120" ixy="0.000033" ixz="0.000128" iyy="0.049794" iyz="-0.000000" izz="0.013580"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_emergency_button_base.stl"/>
+      </geometry>
+      <material name="#a2a2a2"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_emergency_button_base.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_front_emergency_stop_button_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.018" rpy="0.0 0.0 0.0"/>
+    <parent link="front_left_emergency_button_base"/>
+    <child link="front_left_emergency_button"/>
+  </joint>
+
+  <link name="front_left_emergency_button">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.054164"/>
+      <inertia ixx="0.003193" ixy="-0.000000" ixz="0.000016" iyy="0.003194" iyz="0.000000" izz="0.003898"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_emergency_button.stl"/>
+      </geometry>
+      <material name="#ff0000"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/front_left_emergency_button.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="mobile_base_track_rail_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="base_top_plate"/>
+    <child link="base_slot_track_rail"/>
+  </joint>
+
+  <link name="base_slot_track_rail">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.800000"/>
+      <inertia ixx="4.433033" ixy="-0.000734" ixz="0.000000" iyy="14.685867" iyz="-0.000000" izz="19.092831"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/base_slot_track_rail.stl"/>
+      </geometry>
+      <material name="#ada8b9"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://SB1_Core_description/meshes/base_slot_track_rail.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+</robot>
