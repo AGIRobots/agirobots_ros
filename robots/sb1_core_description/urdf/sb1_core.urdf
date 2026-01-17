@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="SB1_Core">
+<robot name="sb1_core">
 
 <!-- material color setting -->
 <material name="#ffffff">
@@ -60,14 +60,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/base_top_plate.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/base_top_plate.stl"/>
       </geometry>
       <material name="#343639"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/base_top_plate.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/base_top_plate.stl"/>
       </geometry>
     </collision>
   </link>
@@ -87,14 +87,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/base_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/base_cover.stl"/>
       </geometry>
       <material name="#ccccc9"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/base_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/base_cover.stl"/>
       </geometry>
     </collision>
   </link>
@@ -114,14 +114,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/camera_d435_housing.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/camera_d435_housing.stl"/>
       </geometry>
       <material name="#d2d2d2"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/camera_d435_housing.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/camera_d435_housing.stl"/>
       </geometry>
     </collision>
   </link>
@@ -141,14 +141,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/camera_d435_sensor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/camera_d435_sensor.stl"/>
       </geometry>
       <material name="#000000"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/camera_d435_sensor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/camera_d435_sensor.stl"/>
       </geometry>
     </collision>
   </link>
@@ -168,14 +168,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_base.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_base.stl"/>
       </geometry>
       <material name="#afafaf"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_base.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_base.stl"/>
       </geometry>
     </collision>
   </link>
@@ -195,14 +195,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_sensor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_sensor.stl"/>
       </geometry>
       <material name="#155af8"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_sensor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_sensor.stl"/>
       </geometry>
     </collision>
   </link>
@@ -222,14 +222,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 3.14159"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_base.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_base.stl"/>
       </geometry>
       <material name="#afafaf"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 3.14159"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_base.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_base.stl"/>
       </geometry>
     </collision>
   </link>
@@ -249,14 +249,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_sensor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_sensor.stl"/>
       </geometry>
       <material name="#155af8"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_sensor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_sensor.stl"/>
       </geometry>
     </collision>
   </link>
@@ -276,14 +276,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/base_bottom_plate.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/base_bottom_plate.stl"/>
       </geometry>
       <material name="#343639"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/base_bottom_plate.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/base_bottom_plate.stl"/>
       </geometry>
     </collision>
   </link>
@@ -305,14 +305,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_swerve_unit.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_swerve_unit.stl"/>
       </geometry>
       <material name="#09090a"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_swerve_unit.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_swerve_unit.stl"/>
       </geometry>
     </collision>
   </link>
@@ -332,14 +332,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_motor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_wheel_motor.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_motor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_wheel_motor.stl"/>
       </geometry>
     </collision>
   </link>
@@ -360,14 +360,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_tire.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_wheel_tire.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_tire.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_wheel_tire.stl"/>
       </geometry>
     </collision>
   </link>
@@ -387,14 +387,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_wheel_cover.stl"/>
       </geometry>
       <material name="#ffffff"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_wheel_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_wheel_cover.stl"/>
       </geometry>
     </collision>
   </link>
@@ -416,14 +416,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_right_swerve_unit.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_right_swerve_unit.stl"/>
       </geometry>
       <material name="#09090a"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_right_swerve_unit.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_right_swerve_unit.stl"/>
       </geometry>
     </collision>
   </link>
@@ -443,14 +443,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_motor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_right_wheel_motor.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_motor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_right_wheel_motor.stl"/>
       </geometry>
     </collision>
   </link>
@@ -471,14 +471,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_tire.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_right_wheel_tire.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_tire.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_right_wheel_tire.stl"/>
       </geometry>
     </collision>
   </link>
@@ -498,14 +498,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_right_wheel_cover.stl"/>
       </geometry>
       <material name="#ffffff"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_right_wheel_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_right_wheel_cover.stl"/>
       </geometry>
     </collision>
   </link>
@@ -527,14 +527,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_left_swerve_unit.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_left_swerve_unit.stl"/>
       </geometry>
       <material name="#09090a"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_left_swerve_unit.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_left_swerve_unit.stl"/>
       </geometry>
     </collision>
   </link>
@@ -554,14 +554,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_motor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_left_wheel_motor.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_motor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_left_wheel_motor.stl"/>
       </geometry>
     </collision>
   </link>
@@ -582,14 +582,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_tire.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_left_wheel_tire.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_tire.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_left_wheel_tire.stl"/>
       </geometry>
     </collision>
   </link>
@@ -609,14 +609,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_left_wheel_cover.stl"/>
       </geometry>
       <material name="#ffffff"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/rear_left_wheel_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/rear_left_wheel_cover.stl"/>
       </geometry>
     </collision>
   </link>
@@ -638,14 +638,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_swerve_unit.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_swerve_unit.stl"/>
       </geometry>
       <material name="#09090a"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_swerve_unit.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_swerve_unit.stl"/>
       </geometry>
     </collision>
   </link>
@@ -665,14 +665,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_motor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_wheel_motor.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_motor.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_wheel_motor.stl"/>
       </geometry>
     </collision>
   </link>
@@ -693,14 +693,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_tire.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_wheel_tire.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_tire.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_wheel_tire.stl"/>
       </geometry>
     </collision>
   </link>
@@ -720,14 +720,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_wheel_cover.stl"/>
       </geometry>
       <material name="#ffffff"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_wheel_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_wheel_cover.stl"/>
       </geometry>
     </collision>
   </link>
@@ -747,14 +747,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/speaker.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/speaker.stl"/>
       </geometry>
       <material name="#0e0f14"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/speaker.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/speaker.stl"/>
       </geometry>
     </collision>
   </link>
@@ -774,14 +774,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_cover.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_cover.stl"/>
       </geometry>
     </collision>
   </link>
@@ -801,14 +801,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_cover.stl"/>
       </geometry>
       <material name="#0b0b0b"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/mid360_cover.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/mid360_cover.stl"/>
       </geometry>
     </collision>
   </link>
@@ -828,14 +828,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_emergency_button_base.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_emergency_button_base.stl"/>
       </geometry>
       <material name="#a2a2a2"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_emergency_button_base.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_emergency_button_base.stl"/>
       </geometry>
     </collision>
   </link>
@@ -855,14 +855,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_emergency_button.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_emergency_button.stl"/>
       </geometry>
       <material name="#ff0000"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_right_emergency_button.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_right_emergency_button.stl"/>
       </geometry>
     </collision>
   </link>
@@ -882,14 +882,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_emergency_button_base.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_emergency_button_base.stl"/>
       </geometry>
       <material name="#a2a2a2"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_emergency_button_base.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_emergency_button_base.stl"/>
       </geometry>
     </collision>
   </link>
@@ -909,14 +909,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_emergency_button.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_emergency_button.stl"/>
       </geometry>
       <material name="#ff0000"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/front_left_emergency_button.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/front_left_emergency_button.stl"/>
       </geometry>
     </collision>
   </link>
@@ -936,14 +936,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/base_slot_track_rail.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/base_slot_track_rail.stl"/>
       </geometry>
       <material name="#ada8b9"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://SB1_Core_description/meshes/base_slot_track_rail.stl"/>
+        <mesh filename="package://sb1_core_description/meshes/base_slot_track_rail.stl"/>
       </geometry>
     </collision>
   </link>

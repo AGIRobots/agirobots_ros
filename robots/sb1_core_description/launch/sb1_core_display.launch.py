@@ -7,12 +7,12 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    pkg_share = get_package_share_directory('SB1_Core_description')
+    pkg_share = get_package_share_directory('sb1_core_description')
     urdf_file = PathJoinSubstitution(
-        [pkg_share, 'urdf', 'SB1_Core.urdf']
+        [pkg_share, 'urdf', 'sb1_core.urdf']
     )
 
-    with open(os.path.join(pkg_share, 'urdf', 'SB1_Core.urdf'), 'r') as infp:
+    with open(os.path.join(pkg_share, 'urdf', 'sb1_core.urdf'), 'r') as infp:
         robot_desc = infp.read()
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
@@ -55,7 +55,7 @@ def generate_launch_description():
             executable='rviz2',
             name='rviz2',
             output='screen',
-            arguments=['-d', PathJoinSubstitution([pkg_share, 'rviz', 'SB1_Core_display.rviz'])],
+            arguments=['-d', PathJoinSubstitution([pkg_share, 'rviz', 'sb1_core_display.rviz'])],
             parameters=[{'use_sim_time': use_sim_time}]
         ),
     ])

@@ -1,6 +1,6 @@
 # SB1 Core Description
 
-SB1 Core は、**AGIRobots株式会社**による移動型ロボットです。  
+SB1 Coreは**AGIRobots株式会社**による移動ロボットです。  
 本パッケージは、ロボットの **URDF モデル、メッシュファイル、および RViz2 による可視化ツール** を提供します。
 
 本リポジトリは、主に **研究・開発（R&D）および可視化用途** を目的としています。
@@ -12,7 +12,7 @@ SB1 Core は、**AGIRobots株式会社**による移動型ロボットです。
 このパッケージには以下が含まれます：
 
 - URDF モデル  
-- 可視化用メッシュファイル  
+- 可視化用メッシュファイル
 - Launch ファイル（RViz 自動起動スクリプト）  
 - RViz 設定ファイル（プリセット済み）
 
@@ -30,7 +30,7 @@ SB1 Core は、**AGIRobots株式会社**による移動型ロボットです。
 
 ```bash
 cd ~/ros2_ws
-colcon build --packages-select SB1_Core_description
+colcon build --packages-select sb1_core_description
 source install/setup.bash
 ```
 
@@ -39,15 +39,15 @@ source install/setup.bash
 ## 使用方法
 
 ```bash
-ros2 launch SB1_Core_description SB1_Core_display.launch.py
+ros2 launch sb1_core_description sb1_core_display.launch.py
 ```
 
 - RViz2：3D モデル表示  
 
-<img width="2398" height="1260" alt="SB1_Core_display launch py" src="https://github.com/user-attachments/assets/1b5d334d-73e4-4133-b336-bcb723cc1679" />
+<img width="2398" height="1260" alt="sb1_core_display launch py" src="https://github.com/user-attachments/assets/1b5d334d-73e4-4133-b336-bcb723cc1679" />
 
 - Joint State Publisher GUI：ステアリング角度操作
-<img width="2398" height="1260" alt="SB1_Core_display launch py jointstatepublisher" src="https://github.com/user-attachments/assets/f9b6716a-786c-4325-af0c-cec26cb22f20" />
+<img width="2398" height="1260" alt="sb1_core_display launch py jointstatepublisher" src="https://github.com/user-attachments/assets/f9b6716a-786c-4325-af0c-cec26cb22f20" />
 
 
 
@@ -56,7 +56,7 @@ ros2 launch SB1_Core_description SB1_Core_display.launch.py
 ## ディレクトリ構成
 
 ```
-SB1_Core_description/
+sb1_core_description/
 ├── urdf/
 ├── meshes/
 ├── launch/
@@ -88,7 +88,7 @@ AGIRobots では、別途 **製品リリースを前提としたロボット開�
 ## Citation
 
 ```bibtex
-@misc{agirobots_SB1_Core_description,
+@misc{agirobots_sb1_core_description,
   title        = {AGIRobots ROS},
   author       = {{AGIRobots Inc.}},
   year         = {2026},
