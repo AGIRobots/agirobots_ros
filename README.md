@@ -79,6 +79,17 @@ Mate P1W 用のロボット記述パッケージです。
 
 - 主に研究・開発用途での利用を想定しています
 
+## Citation
+
+```bibtex
+@misc{agirobots_ros,
+  title        = {AGIRobots ROS},
+  author       = {{AGIRobots Inc.}},
+  year         = {2026},
+  howpublished = {https://github.com/AGIRobots/agirobots_ros}
+}
+```
+
 ## ライセンス（License）
 
 TBD
