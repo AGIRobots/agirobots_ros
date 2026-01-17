@@ -5,6 +5,9 @@ Mate P1Wは**AGIRobots株式会社**による移動型セミヒューマノイ�
 
 本リポジトリは、主に **研究・開発（R&D）および可視化用途** を目的としています。
 
+<img width="628" height="1362" alt="image" src="https://github.com/user-attachments/assets/2c3c5e90-9c2c-4be8-a0b2-3c4fc8b07530" />
+
+
 ---
 
 ## 概要
