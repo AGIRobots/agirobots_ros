@@ -86,19 +86,6 @@ AGIRobots では、別途 **製品リリースを前提としたロボット開�
 
 ---
 
-## Citation
-
-```bibtex
-@misc{agirobots_mate_p1w_description,
-  title        = {AGIRobots ROS},
-  author       = {{AGIRobots Inc.}},
-  year         = {2026},
-  howpublished = {https://github.com/AGIRobots/agirobots_ros}
-}
-```
-
----
-
 ## License
 
 Copyright (c) AGIRobots Inc.
