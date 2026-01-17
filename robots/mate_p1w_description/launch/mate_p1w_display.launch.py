@@ -46,14 +46,6 @@ def generate_launch_description():
             output='screen',
             parameters=[
                 {'use_sim_time': use_sim_time},
-                {
-                    'excluded_joints': [
-                        'left_front_wheel_joint',
-                        'left_rear_wheel_joint',
-                        'right_front_wheel_joint',
-                        'right_rear_wheel_joint'
-                    ]
-                }
             ],
             condition=conditions.IfCondition(use_gui)
         ),

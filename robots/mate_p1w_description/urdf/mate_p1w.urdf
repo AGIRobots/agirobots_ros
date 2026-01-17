@@ -25,19 +25,12 @@
 </material>
 
   <link name="base_link">
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <mass value="0.0" />
-      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
-    </inertial>
   </link>
 
   <joint name="base_to_mobile_base_joint" type="fixed">
     <origin xyz="0.0 0.0 0.307" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="base_link" />
     <child link="mobile_base" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="mobile_base">
@@ -120,7 +113,6 @@
 
   <joint name="left_front_wheel_cover_joint" type="fixed">
     <origin xyz="3.7e-05 0.0125 -0.127006" rpy="0.0 0.0 0.0" />
-    <axis xyz="0.0 1.0 0.0" />
     <parent link="left_front_mobile_base_steering_link" />
     <child link="left_front_mobile_base_wheel_cover" />
   </joint>
@@ -205,10 +197,8 @@
 
   <joint name="left_rear_wheel_cover_joint" type="fixed">
     <origin xyz="0.0 0.01 -0.13" rpy="0.0 0.0 0.0" />
-    <axis xyz="0.0 1.0 0.0" />
     <parent link="left_rear_mobile_base_steering_link" />
     <child link="left_rear_mobile_base_wheel_cover" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="left_rear_mobile_base_wheel_cover">
@@ -291,7 +281,6 @@
 
   <joint name="right_front_wheel_cover_joint" type="fixed">
     <origin xyz="0.0 -0.01 -0.13" rpy="0.0 0.0 0.0" />
-    <axis xyz="0.0 1.0 0.0" />
     <parent link="right_front_mobile_base_steering_link" />
     <child link="right_front_mobile_base_wheel_cover" />
   </joint>
@@ -376,10 +365,8 @@
 
   <joint name="right_rear_wheel_cover_joint" type="fixed">
     <origin xyz="0.0 -0.01 -0.13" rpy="0.0 0.0 0.0" />
-    <axis xyz="0.0 1.0 0.0" />
     <parent link="right_rear_mobile_base_steering_link" />
     <child link="right_rear_mobile_base_wheel_cover" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="right_rear_mobile_base_wheel_cover">
@@ -405,10 +392,8 @@
 
   <joint name="mobile_base_cover_joint" type="fixed">
     <origin xyz="0.0 0.0 -0.005" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="mobile_base" />
     <child link="mobile_base_cover" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="mobile_base_cover">
@@ -434,10 +419,8 @@
 
   <joint name="mobile_base_to_body_joint" type="fixed">
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="mobile_base" />
     <child link="body" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="body">
@@ -463,10 +446,8 @@
 
   <joint name="pelvis_joint" type="fixed">
     <origin xyz="0.0 0.0 0.3" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="body" />
     <child link="pelvis_link" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="pelvis_link">
@@ -840,10 +821,8 @@
 
   <joint name="right_forearm_cover_joint" type="fixed">
     <origin xyz="-0.01 -0.0455 -0.02" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="right_forearm_link" />
     <child link="right_forearm_cover" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="right_forearm_cover">
@@ -869,10 +848,8 @@
 
   <joint name="right_shoulder_cover_joint" type="fixed">
     <origin xyz="0.05 0.0 0.0" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="right_shoulder_pitch_link" />
     <child link="right_shoulder_cover" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="right_shoulder_cover">
@@ -898,10 +875,8 @@
 
   <joint name="right_shoulder_cap_joint" type="fixed">
     <origin xyz="-0.04 0.0 0.0" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="right_shoulder_pitch_link" />
     <child link="right_shoulder_cap" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="right_shoulder_cap">
@@ -1275,10 +1250,8 @@
 
   <joint name="left_forearm_cover_joint" type="fixed">
     <origin xyz="-0.01 0.0455 -0.02" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="left_forearm_link" />
     <child link="left_forearm_cover" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="left_forearm_cover">
@@ -1304,10 +1277,8 @@
 
   <joint name="left_shoulder_cover_joint" type="fixed">
     <origin xyz="0.05 0.0 0.0" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="left_shoulder_pitch_link" />
     <child link="left_shoulder_cover" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="left_shoulder_cover">
@@ -1333,10 +1304,8 @@
 
   <joint name="left_shoulder_cap_joint" type="fixed">
     <origin xyz="-0.04 0.0 0.0" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="left_shoulder_pitch_link" />
     <child link="left_shoulder_cap" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="left_shoulder_cap">
@@ -1362,10 +1331,8 @@
 
   <joint name="upper_body_joint" type="fixed">
     <origin xyz="0.0 0.0 0.22" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="pelvis_link" />
     <child link="upper_body" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="upper_body">
@@ -1391,10 +1358,8 @@
 
   <joint name="neck_joint" type="fixed">
     <origin xyz="0.06 -0.0 0.37" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="upper_body" />
     <child link="neck_link" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="neck_link">
@@ -1420,10 +1385,8 @@
 
   <joint name="left_head_joint" type="fixed">
     <origin xyz="0.04 0.0525 0.07" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="neck_link" />
     <child link="left_head" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="left_head">
@@ -1449,10 +1412,8 @@
 
   <joint name="right_head_joint" type="fixed">
     <origin xyz="0.04 -0.0515 0.07" rpy="0.0 0.0 0.0" />
-    <axis xyz="1.0 0.0 0.0" />
     <parent link="neck_link" />
     <child link="right_head" />
-    <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0" />
   </joint>
 
   <link name="right_head">
