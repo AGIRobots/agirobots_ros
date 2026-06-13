@@ -1290,7 +1290,9 @@
     <origin xyz="0.229 -0.07 -0.028" rpy="0.0 0.0 0.0" />
     <parent link="lift_elevator_carriage" />
     <child link="upper_body_upper_right_cover" />
-    <axis xyz="0 1 0" /><limit upper="2.5" lower="-0.3" /></joint>
+    <axis xyz="0 1 0" />
+    <limit lower="-0.3" upper="2.5" effort="0" velocity="0" />
+  </joint>
 
   <link name="upper_body_upper_right_cover">
     <inertial>
