@@ -1,0 +1,3447 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<robot name="AGIRobots Worker">
+
+
+<material name="#ffffff">
+  <color rgba="1.000 1.000 1.000 1.0" />
+</material>
+<material name="#ff0000">
+  <color rgba="1.000 0.000 0.000 1.0" />
+</material>
+<material name="#a2a2a2">
+  <color rgba="0.639 0.639 0.639 1.0" />
+</material>
+<material name="#09090a">
+  <color rgba="0.039 0.039 0.043 1.0" />
+</material>
+<material name="#0b0b0b">
+  <color rgba="0.047 0.047 0.047 1.0" />
+</material>
+<material name="#ccccc9">
+  <color rgba="0.800 0.800 0.792 1.0" />
+</material>
+<material name="#0f0f0f">
+  <color rgba="0.059 0.059 0.059 1.0" />
+</material>
+<material name="#b8b8b8">
+  <color rgba="0.725 0.725 0.725 1.0" />
+</material>
+<material name="#282828">
+  <color rgba="0.157 0.157 0.157 1.0" />
+</material>
+<material name="#ffd117">
+  <color rgba="1.000 0.820 0.094 1.0" />
+</material>
+<material name="#828282">
+  <color rgba="0.510 0.510 0.510 1.0" />
+</material>
+<material name="#131313">
+  <color rgba="0.078 0.078 0.078 1.0" />
+</material>
+<material name="#bdbbb4">
+  <color rgba="0.745 0.737 0.706 1.0" />
+</material>
+<material name="#bbb9b4">
+  <color rgba="0.737 0.729 0.706 1.0" />
+</material>
+<material name="#000000">
+  <color rgba="0.000 0.000 0.000 1.0" />
+</material>
+<material name="#bcbab4">
+  <color rgba="0.741 0.733 0.706 1.0" />
+</material>
+<material name="#bab8b4">
+  <color rgba="0.733 0.725 0.706 1.0" />
+</material>
+<material name="#d2d2d2">
+  <color rgba="0.827 0.827 0.827 1.0" />
+</material>
+<material name="#afafaf">
+  <color rgba="0.690 0.690 0.690 1.0" />
+</material>
+<material name="#155af8">
+  <color rgba="0.086 0.353 0.973 1.0" />
+</material>
+<material name="#6a6861">
+  <color rgba="0.416 0.408 0.384 1.0" />
+</material>
+<material name="#999793">
+  <color rgba="0.600 0.596 0.580 1.0" />
+</material>
+<material name="#47453b">
+  <color rgba="0.282 0.271 0.235 1.0" />
+</material>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.0" />
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="mobile_base_chassis_fixed_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0.0 0.0 0.0" />
+    <parent link="base_link" />
+    <child link="mobile_base_chassis" />
+    </joint>
+
+  <link name="mobile_base_chassis">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="8.233960" />
+      <inertia ixx="0.197304" ixy="0.000000" ixz="0.000000" iyy="0.251579" iyz="0.000000" izz="0.439762" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/mobile_base_chassis.stl" />
+      </geometry>
+      <material name="#0f0f0f" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/mobile_base_chassis.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="swerve_drive_frame_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.071" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="swerve_drive_frame" />
+    </joint>
+
+  <link name="swerve_drive_frame">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.306060" />
+      <inertia ixx="0.054793" ixy="0.000000" ixz="0.000000" iyy="0.069994" iyz="0.000000" izz="0.123163" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/swerve_drive_frame.stl" />
+      </geometry>
+      <material name="#ccccc9" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/swerve_drive_frame.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_d435_housing_fixed_joint" type="fixed">
+    <origin xyz="0.3 0.0 -0.015" rpy="0.0 0.0 0.0" />
+    <parent link="swerve_drive_frame" />
+    <child link="camera_d435_housing" />
+    </joint>
+
+  <link name="camera_d435_housing">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.200000" />
+      <inertia ixx="0.050039" ixy="0.000013" ixz="0.000001" iyy="0.010526" iyz="0.000065" izz="0.051553" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/camera_d435_housing.stl" />
+      </geometry>
+      <material name="#d2d2d2" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/camera_d435_housing.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_d435_sensor_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 -0.0" rpy="0.0 0.0 0.0" />
+    <parent link="camera_d435_housing" />
+    <child link="camera_d435_sensor" />
+    </joint>
+
+  <link name="camera_d435_sensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.050000" />
+      <inertia ixx="0.301856" ixy="0.000994" ixz="0.000000" iyy="6.983010" iyz="0.000000" izz="7.277867" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/camera_d435_sensor.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/camera_d435_sensor.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_mid360_base_fixed_joint" type="fixed">
+    <origin xyz="0.25 0.0 -0.0275" rpy="0.0 0.0 0.0" />
+    <parent link="swerve_drive_frame" />
+    <child link="front_mid360_base" />
+    </joint>
+
+  <link name="front_mid360_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.400000" />
+      <inertia ixx="0.098896" ixy="0.000053" ixz="0.002586" iyy="0.115546" iyz="0.000199" izz="0.154728" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_mid360_base.stl" />
+      </geometry>
+      <material name="#afafaf" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_mid360_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_mid360_sensor_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 -0.0395" rpy="0.0 0.0 0.0" />
+    <parent link="front_mid360_base" />
+    <child link="front_mid360_sensor" />
+    </joint>
+
+  <link name="front_mid360_sensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.050000" />
+      <inertia ixx="0.004322" ixy="-0.000000" ixz="0.000000" iyy="0.004238" iyz="0.000198" izz="0.005637" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_mid360_sensor.stl" />
+      </geometry>
+      <material name="#155af8" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_mid360_sensor.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_mid360_base_fixed_joint" type="fixed">
+    <origin xyz="-0.25 0.0 -0.0275" rpy="0.0 0.0 0.0" />
+    <parent link="swerve_drive_frame" />
+    <child link="rear_mid360_base" />
+    </joint>
+
+  <link name="rear_mid360_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.400000" />
+      <inertia ixx="0.166873" ixy="0.000847" ixz="0.001567" iyy="0.169140" iyz="-0.000300" izz="0.179625" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_mid360_base.stl" />
+      </geometry>
+      <material name="#afafaf" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_mid360_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_mid360_sensor_fixed_joint" type="fixed">
+    <origin xyz="0.0 -0.0 -0.0395" rpy="0.0 0.0 0.0" />
+    <parent link="rear_mid360_base" />
+    <child link="rear_mid360_sensor" />
+    </joint>
+
+  <link name="rear_mid360_sensor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.050000" />
+      <inertia ixx="0.004419" ixy="-0.000000" ixz="-0.000000" iyy="0.004407" iyz="-0.000081" izz="0.004635" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_mid360_sensor.stl" />
+      </geometry>
+      <material name="#155af8" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_mid360_sensor.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_right_emergency_button_base_fixed_joint" type="fixed">
+    <origin xyz="0.0 -0.215 0.071" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="front_right_emergency_button_base" />
+    </joint>
+
+  <link name="front_right_emergency_button_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.210896" />
+      <inertia ixx="0.052431" ixy="0.000232" ixz="0.000077" iyy="0.053593" iyz="0.000000" izz="0.045002" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_emergency_button_base.stl" />
+      </geometry>
+      <material name="#a2a2a2" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_emergency_button_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_right_emergency_button_fixed_joint" type="fixed">
+    <origin xyz="0.0 -0.0 0.018" rpy="0.0 0.0 0.0" />
+    <parent link="front_right_emergency_button_base" />
+    <child link="front_right_emergency_button" />
+    </joint>
+
+  <link name="front_right_emergency_button">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.054164" />
+      <inertia ixx="0.004721" ixy="-0.000000" ixz="0.000009" iyy="0.004721" iyz="0.000000" izz="0.004863" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_emergency_button.stl" />
+      </geometry>
+      <material name="#ff0000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_emergency_button.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_left_emergency_button_base_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.215 0.071" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="front_left_emergency_button_base" />
+    </joint>
+
+  <link name="front_left_emergency_button_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.210896" />
+      <inertia ixx="0.052431" ixy="-0.000232" ixz="0.000077" iyy="0.053593" iyz="-0.000000" izz="0.045002" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_emergency_button_base.stl" />
+      </geometry>
+      <material name="#a2a2a2" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_emergency_button_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_left_emergency_button_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.018" rpy="0.0 0.0 0.0" />
+    <parent link="front_left_emergency_button_base" />
+    <child link="front_left_emergency_button" />
+    </joint>
+
+  <link name="front_left_emergency_button">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.054164" />
+      <inertia ixx="0.004721" ixy="0.000000" ixz="0.000009" iyy="0.004721" iyz="-0.000000" izz="0.004863" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_emergency_button.stl" />
+      </geometry>
+      <material name="#ff0000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_emergency_button.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_right_steering_joint" type="revolute">
+    <origin xyz="0.2 -0.165 0.006" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 1" />
+    <parent link="mobile_base_chassis" />
+    <child link="front_right_swerve_unit" />
+    <limit lower="-3.14159" upper="3.14159" effort="0" velocity="0" />
+  </joint>
+
+  <link name="front_right_swerve_unit">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.500000" />
+      <inertia ixx="5.645400" ixy="-0.000007" ixz="0.000712" iyy="5.494431" iyz="0.761841" izz="5.158045" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_swerve_unit.stl" />
+      </geometry>
+      <material name="#09090a" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_swerve_unit.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_right_wheel_motor_fixed_joint" type="fixed">
+    <origin xyz="8e-06 0.0785 -0.1376" rpy="0.0 0.0 0.0" />
+    <parent link="front_right_swerve_unit" />
+    <child link="front_right_wheel_motor" />
+    </joint>
+
+  <link name="front_right_wheel_motor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="3.043953" />
+      <inertia ixx="3.807828" ixy="0.000148" ixz="-0.000002" iyy="4.046208" iyz="-0.000518" izz="3.807930" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_wheel_motor.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_wheel_motor.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_right_wheel_joint" type="revolute">
+    <origin xyz="0.0 -0.101 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="front_right_wheel_motor" />
+    <child link="front_right_wheel_tire" />
+    <limit lower="-3.14159" upper="3.14159" effort="0" velocity="0" />
+  </joint>
+
+  <link name="front_right_wheel_tire">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.000000" />
+      <inertia ixx="0.823746" ixy="0.000000" ixz="0.000000" iyy="0.902785" iyz="0.000000" izz="0.823724" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_wheel_tire.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_wheel_tire.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_right_wheel_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0 -0.111 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="front_right_wheel_motor" />
+    <child link="front_right_wheel_cover" />
+    </joint>
+
+  <link name="front_right_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.078001" />
+      <inertia ixx="0.239691" ixy="0.000004" ixz="0.000151" iyy="0.225503" iyz="-0.000534" izz="0.239640" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_wheel_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_right_wheel_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_right_steering_joint" type="revolute">
+    <origin xyz="-0.2 -0.165 0.006" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 1" />
+    <parent link="mobile_base_chassis" />
+    <child link="rear_right_swerve_unit" />
+    <limit lower="-3.14159" upper="3.14159" effort="0" velocity="0" />
+  </joint>
+
+  <link name="rear_right_swerve_unit">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.500000" />
+      <inertia ixx="5.769726" ixy="0.000007" ixz="-0.000728" iyy="5.615432" iyz="0.778619" izz="5.271638" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_right_swerve_unit.stl" />
+      </geometry>
+      <material name="#09090a" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_right_swerve_unit.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_right_wheel_motor_fixed_joint" type="fixed">
+    <origin xyz="-8e-06 0.0785 -0.1376" rpy="0.0 0.0 0.0" />
+    <parent link="rear_right_swerve_unit" />
+    <child link="rear_right_wheel_motor" />
+    </joint>
+
+  <link name="rear_right_wheel_motor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="3.043953" />
+      <inertia ixx="1.493808" ixy="-0.000058" ixz="0.000001" iyy="1.587324" iyz="-0.000203" izz="1.493848" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_right_wheel_motor.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_right_wheel_motor.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_right_wheel_joint" type="revolute">
+    <origin xyz="-0.0 -0.101 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="rear_right_wheel_motor" />
+    <child link="rear_right_wheel_tire" />
+    <limit lower="-3.14159" upper="3.14159" effort="0" velocity="0" />
+  </joint>
+
+  <link name="rear_right_wheel_tire">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.000000" />
+      <inertia ixx="0.823746" ixy="-0.000000" ixz="0.000000" iyy="0.902785" iyz="0.000000" izz="0.823724" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_right_wheel_tire.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_right_wheel_tire.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_right_wheel_cover_fixed_joint" type="fixed">
+    <origin xyz="-0.0 -0.111 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="rear_right_wheel_motor" />
+    <child link="rear_right_wheel_cover" />
+    </joint>
+
+  <link name="rear_right_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.078001" />
+      <inertia ixx="0.239691" ixy="-0.000004" ixz="-0.000151" iyy="0.225503" iyz="-0.000534" izz="0.239640" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_right_wheel_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_right_wheel_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_left_steering_joint" type="revolute">
+    <origin xyz="-0.2 0.165 0.006" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 1" />
+    <parent link="mobile_base_chassis" />
+    <child link="rear_left_swerve_unit" />
+    <limit lower="-3.14159" upper="3.14159" effort="0" velocity="0" />
+  </joint>
+
+  <link name="rear_left_swerve_unit">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.500000" />
+      <inertia ixx="6.398750" ixy="-0.000008" ixz="-0.000807" iyy="6.227634" iyz="-0.863505" izz="5.846360" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_left_swerve_unit.stl" />
+      </geometry>
+      <material name="#09090a" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_left_swerve_unit.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_left_wheel_motor_fixed_joint" type="fixed">
+    <origin xyz="-8e-06 -0.0785 -0.1376" rpy="0.0 0.0 0.0" />
+    <parent link="rear_left_swerve_unit" />
+    <child link="rear_left_wheel_motor" />
+    </joint>
+
+  <link name="rear_left_wheel_motor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="3.043953" />
+      <inertia ixx="1.500927" ixy="0.000058" ixz="0.000001" iyy="1.594889" iyz="0.000204" izz="1.500967" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_left_wheel_motor.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_left_wheel_motor.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_left_wheel_joint" type="revolute">
+    <origin xyz="-0.0 0.101 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="rear_left_wheel_motor" />
+    <child link="rear_left_wheel_tire" />
+    <limit lower="-3.14159" upper="3.14159" effort="0" velocity="0" />
+  </joint>
+
+  <link name="rear_left_wheel_tire">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.000000" />
+      <inertia ixx="0.823746" ixy="0.000000" ixz="0.000000" iyy="0.902785" iyz="0.000000" izz="0.823724" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_left_wheel_tire.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_left_wheel_tire.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_left_wheel_cover_fixed_joint" type="fixed">
+    <origin xyz="-0.0 0.111 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="rear_left_wheel_motor" />
+    <child link="rear_left_wheel_cover" />
+    </joint>
+
+  <link name="rear_left_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.078001" />
+      <inertia ixx="0.239691" ixy="0.000004" ixz="-0.000151" iyy="0.225503" iyz="0.000534" izz="0.239640" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_left_wheel_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_left_wheel_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_left_steering_joint" type="revolute">
+    <origin xyz="0.2 0.165 0.006" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 1" />
+    <parent link="mobile_base_chassis" />
+    <child link="front_left_swerve_unit" />
+    <limit lower="-3.14159" upper="3.14159" effort="0" velocity="0" />
+  </joint>
+
+  <link name="front_left_swerve_unit">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="2.500000" />
+      <inertia ixx="6.299649" ixy="0.000007" ixz="0.000795" iyy="6.131184" iyz="-0.850132" izz="5.755814" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_swerve_unit.stl" />
+      </geometry>
+      <material name="#09090a" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_swerve_unit.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_left_wheel_motor_fixed_joint" type="fixed">
+    <origin xyz="8e-06 -0.0785 -0.1376" rpy="0.0 0.0 0.0" />
+    <parent link="front_left_swerve_unit" />
+    <child link="front_left_wheel_motor" />
+    </joint>
+
+  <link name="front_left_wheel_motor">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="3.043953" />
+      <inertia ixx="3.732870" ixy="-0.000145" ixz="-0.000002" iyy="3.966557" iyz="0.000508" izz="3.732969" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_wheel_motor.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_wheel_motor.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_left_wheel_joint" type="revolute">
+    <origin xyz="0.0 0.101 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="front_left_wheel_motor" />
+    <child link="front_left_wheel_tire" />
+    <limit lower="-3.14159" upper="3.14159" effort="0" velocity="0" />
+  </joint>
+
+  <link name="front_left_wheel_tire">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.000000" />
+      <inertia ixx="0.823746" ixy="-0.000000" ixz="0.000000" iyy="0.902785" iyz="0.000000" izz="0.823724" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_wheel_tire.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_wheel_tire.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_left_wheel_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.111 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="front_left_wheel_motor" />
+    <child link="front_left_wheel_cover" />
+    </joint>
+
+  <link name="front_left_wheel_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.078001" />
+      <inertia ixx="0.239691" ixy="-0.000004" ixz="0.000151" iyy="0.225503" iyz="0.000534" izz="0.239640" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_wheel_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_left_wheel_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="front_mid360_cover_fixed_joint" type="fixed">
+    <origin xyz="0.25 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="front_mid360_cover" />
+    </joint>
+
+  <link name="front_mid360_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.048432" />
+      <inertia ixx="0.077963" ixy="-0.000000" ixz="0.000012" iyy="0.077963" iyz="0.000096" izz="0.109309" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_mid360_cover.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/front_mid360_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rear_mid360_cover_fixed_joint" type="fixed">
+    <origin xyz="-0.25 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="rear_mid360_cover" />
+    </joint>
+
+  <link name="rear_mid360_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.048432" />
+      <inertia ixx="0.077963" ixy="-0.000000" ixz="0.000012" iyy="0.077963" iyz="0.000096" izz="0.109309" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_mid360_cover.stl" />
+      </geometry>
+      <material name="#0b0b0b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rear_mid360_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_front_support_fixed_joint" type="fixed">
+    <origin xyz="-0.0425 0.15 0.077" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="upper_body_front_support" />
+    </joint>
+
+  <link name="upper_body_front_support">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.891441" />
+      <inertia ixx="0.010715" ixy="0.000000" ixz="0.000000" iyy="0.003043" iyz="0.000000" izz="0.008508" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_front_support.stl" />
+      </geometry>
+      <material name="#b8b8b8" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_front_support.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_base_tower_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.188" rpy="0.0 0.0 0.0" />
+    <parent link="upper_body_front_support" />
+    <child link="lift_base_tower" />
+    </joint>
+
+  <link name="lift_base_tower">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="4.293760" />
+      <inertia ixx="0.401086" ixy="0.000000" ixz="0.000000" iyy="0.387247" iyz="0.000000" izz="0.064093" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_base_tower.stl" />
+      </geometry>
+      <material name="#282828" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_base_tower.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="rj45_port_fixed_joint" type="fixed">
+    <origin xyz="-0.036 -0.315 0.006" rpy="0.0 0.0 0.0" />
+    <parent link="lift_base_tower" />
+    <child link="rj45_port" />
+    </joint>
+
+  <link name="rj45_port">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004463" />
+      <inertia ixx="0.000000" ixy="0.000000" ixz="0.000000" iyy="0.000000" iyz="0.000000" izz="0.000000" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rj45_port.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/rj45_port.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="usb_port_fixed_joint" type="fixed">
+    <origin xyz="-0.009 -0.315 0.008" rpy="0.0 0.0 0.0" />
+    <parent link="lift_base_tower" />
+    <child link="usb_port" />
+    </joint>
+
+  <link name="usb_port">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.001842" />
+      <inertia ixx="0.000215" ixy="-0.000001" ixz="0.000000" iyy="0.000135" iyz="0.000000" izz="0.000147" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/usb_port.stl" />
+      </geometry>
+      <material name="#828282" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/usb_port.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="xt30_port_1_fixed_joint" type="fixed">
+    <origin xyz="0.0044 -0.315 0.00825" rpy="0.0 0.0 0.0" />
+    <parent link="lift_base_tower" />
+    <child link="xt30_port_1" />
+    </joint>
+
+  <link name="xt30_port_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.000446" />
+      <inertia ixx="0.000028" ixy="0.000000" ixz="0.000000" iyy="0.000016" iyz="0.000000" izz="0.000020" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/xt30_port_1.stl" />
+      </geometry>
+      <material name="#ffd117" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/xt30_port_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="xt30_port_2_fixed_joint" type="fixed">
+    <origin xyz="0.0144 -0.315 0.00825" rpy="0.0 0.0 0.0" />
+    <parent link="lift_base_tower" />
+    <child link="xt30_port_2" />
+    </joint>
+
+  <link name="xt30_port_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.000446" />
+      <inertia ixx="0.000028" ixy="0.000000" ixz="0.000000" iyy="0.000016" iyz="0.000000" izz="0.000020" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/xt30_port_2.stl" />
+      </geometry>
+      <material name="#ffd117" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/xt30_port_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_left_cover_fixed_joint" type="fixed">
+    <origin xyz="-0.095 -0.257 0.006" rpy="0.0 0.0 0.0" />
+    <parent link="lift_base_tower" />
+    <child link="lift_left_cover" />
+    </joint>
+
+  <link name="lift_left_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.127810" />
+      <inertia ixx="0.094117" ixy="0.000000" ixz="0.000000" iyy="0.100584" iyz="0.000000" izz="0.006732" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_left_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_left_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_top_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 1.0" rpy="0.0 0.0 0.0" />
+    <parent link="lift_left_cover" />
+    <child link="lift_top_cover" />
+    </joint>
+
+  <link name="lift_top_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.606248" />
+      <inertia ixx="0.002466" ixy="0.000000" ixz="0.000000" iyy="0.003701" iyz="0.000000" izz="0.005861" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_top_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_top_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_top_plate_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.107 0.03" rpy="0.0 0.0 0.0" />
+    <parent link="lift_top_cover" />
+    <child link="lift_top_plate" />
+    </joint>
+
+  <link name="lift_top_plate">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.155245" />
+      <inertia ixx="0.000438" ixy="0.000000" ixz="0.000000" iyy="0.000715" iyz="0.000000" izz="0.001152" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_top_plate.stl" />
+      </geometry>
+      <material name="#0f0f0f" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_top_plate.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_right_cover_fixed_joint" type="fixed">
+    <origin xyz="-0.095 -0.043 0.006" rpy="0.0 0.0 0.0" />
+    <parent link="lift_base_tower" />
+    <child link="lift_right_cover" />
+    </joint>
+
+  <link name="lift_right_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.127810" />
+      <inertia ixx="0.094117" ixy="0.000000" ixz="0.000000" iyy="0.100584" iyz="0.000000" izz="0.006732" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_right_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_right_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_rail_fixed_joint" type="fixed">
+    <origin xyz="0.0345 -0.15 0.006" rpy="0.0 0.0 0.0" />
+    <parent link="lift_base_tower" />
+    <child link="lift_rail" />
+    </joint>
+
+  <link name="lift_rail">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="5.629250" />
+      <inertia ixx="0.486978" ixy="0.000000" ixz="0.000000" iyy="0.493371" iyz="0.000000" izz="0.040263" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_rail.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_rail.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_joint" type="prismatic">
+    <origin xyz="-0.087 0.0 0.5" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 1" />
+    <parent link="lift_rail" />
+    <child link="lift_elevator_carriage" />
+    <limit lower="-0.35" upper="0.4" effort="0" velocity="0" />
+  </joint>
+
+  <link name="lift_elevator_carriage">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="6.546010" />
+      <inertia ixx="0.020171" ixy="0.000000" ixz="0.000000" iyy="0.065867" iyz="0.000000" izz="0.065285" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_elevator_carriage.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_elevator_carriage.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_lower_right_cover_fixed_joint" type="fixed">
+    <origin xyz="0.229 -0.07 -0.028" rpy="0.0 0.0 0.0" />
+    <parent link="lift_elevator_carriage" />
+    <child link="upper_body_lower_right_cover" />
+    </joint>
+
+  <link name="upper_body_lower_right_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.184713" />
+      <inertia ixx="0.260581" ixy="0.000000" ixz="-0.000051" iyy="0.296432" iyz="0.000000" izz="0.255381" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_lower_right_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_lower_right_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_lower_left_cover_fixed_joint" type="fixed">
+    <origin xyz="0.229 0.07 -0.028" rpy="0.0 0.0 0.0" />
+    <parent link="lift_elevator_carriage" />
+    <child link="upper_body_lower_left_cover" />
+    </joint>
+
+  <link name="upper_body_lower_left_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.184713" />
+      <inertia ixx="0.944320" ixy="0.000000" ixz="0.000354" iyy="0.848355" iyz="0.000000" izz="0.959920" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_lower_left_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_lower_left_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_upper_right_cover_joint" type="revolute">
+    <origin xyz="0.229 -0.07 -0.028" rpy="0.0 0.0 0.0" />
+    <parent link="lift_elevator_carriage" />
+    <child link="upper_body_upper_right_cover" />
+    <axis xyz="0 1 0" /><limit upper="2.5" lower="-0.3" /></joint>
+
+  <link name="upper_body_upper_right_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.354305" />
+      <inertia ixx="0.879028" ixy="0.006470" ixz="0.005854" iyy="1.089881" iyz="-0.074150" izz="0.487998" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_upper_right_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_upper_right_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_base_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.189" rpy="0.0 0.0 0.0" />
+    <parent link="upper_body_upper_right_cover" />
+    <child link="upper_body_base" />
+    </joint>
+
+  <link name="upper_body_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.365740" />
+      <inertia ixx="0.007572" ixy="0.000000" ixz="0.000000" iyy="0.007614" iyz="0.000000" izz="0.004504" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_base.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_right_frame_plate_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.006 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="upper_body_base" />
+    <child link="upper_body_right_frame_plate" />
+    </joint>
+
+  <link name="upper_body_right_frame_plate">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.100875" />
+      <inertia ixx="0.000678" ixy="0.000000" ixz="0.000000" iyy="0.000792" iyz="0.000000" izz="0.000115" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_right_frame_plate.stl" />
+      </geometry>
+      <material name="#bdbbb4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_right_frame_plate.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_pitch_dm8009p_fixed_joint" type="fixed">
+    <origin xyz="-0.0 -0.006 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="upper_body_right_frame_plate" />
+    <child link="right_shoulder_pitch_dm8009p" />
+    </joint>
+
+  <link name="right_shoulder_pitch_dm8009p">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.930000" />
+      <inertia ixx="0.147778" ixy="0.000001" ixz="0.000190" iyy="0.164571" iyz="-0.000163" izz="0.148090" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_pitch_dm8009p.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_pitch_dm8009p.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_pitch_joint" type="revolute">
+    <origin xyz="-0.0 -0.0505 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="right_shoulder_pitch_dm8009p" />
+    <child link="right_shoulder_base" />
+    <limit lower="-0.32" upper="2.5" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_shoulder_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.173856" />
+      <inertia ixx="0.000407" ixy="0.000000" ixz="0.000000" iyy="0.000190" iyz="0.000000" izz="0.000290" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_base.stl" />
+      </geometry>
+      <material name="#bbb9b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_harness_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="right_shoulder_base" />
+    <child link="right_shoulder_harness_cover" />
+    </joint>
+
+  <link name="right_shoulder_harness_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.087521" />
+      <inertia ixx="0.000048" ixy="0.000000" ixz="0.000000" iyy="0.000081" iyz="0.000000" izz="0.000058" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_harness_cover.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_harness_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_roll_dm8009p_fixed_joint" type="fixed">
+    <origin xyz="-0.0205 -0.0808 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="right_shoulder_base" />
+    <child link="right_shoulder_roll_dm8009p" />
+    </joint>
+
+  <link name="right_shoulder_roll_dm8009p">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.929300" />
+      <inertia ixx="0.001487" ixy="0.000000" ixz="0.000000" iyy="0.001038" iyz="0.000000" izz="0.001038" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_roll_dm8009p.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_roll_dm8009p.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_roll_joint" type="revolute">
+    <origin xyz="-0.0097 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="1 0 0" />
+    <parent link="right_shoulder_roll_dm8009p" />
+    <child link="right_shoulder_frame" />
+    <limit lower="-3.3" upper="0.1" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_shoulder_frame">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.180278" />
+      <inertia ixx="0.000366" ixy="0.000000" ixz="0.000000" iyy="0.000288" iyz="0.000000" izz="0.000241" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_frame.stl" />
+      </geometry>
+      <material name="#bbb9b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_frame.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_rear_cover_fixed_joint" type="fixed">
+    <origin xyz="-0.009 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="right_shoulder_frame" />
+    <child link="right_shoulder_rear_cover" />
+    </joint>
+
+  <link name="right_shoulder_rear_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.050552" />
+      <inertia ixx="0.000100" ixy="0.000000" ixz="0.000000" iyy="0.000057" iyz="0.000000" izz="0.000046" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_rear_cover.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_rear_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_upper_arm_yaw_dm4340p_fixed_joint" type="fixed">
+    <origin xyz="0.0292 0.0 -0.0657" rpy="0.0 0.0 0.0" />
+    <parent link="right_shoulder_frame" />
+    <child link="right_upper_arm_yaw_dm4340p" />
+    </joint>
+
+  <link name="right_upper_arm_yaw_dm4340p">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.308865" />
+      <inertia ixx="0.000166" ixy="0.000000" ixz="0.000000" iyy="0.000166" iyz="0.000000" izz="0.000167" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_upper_arm_yaw_dm4340p.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_upper_arm_yaw_dm4340p.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_upper_arm_yaw_joint" type="revolute">
+    <origin xyz="0.0 0.0 -0.0018" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 1" />
+    <parent link="right_upper_arm_yaw_dm4340p" />
+    <child link="right_upper_arm_yaw" />
+    <limit lower="-1.5" upper="1.5" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_upper_arm_yaw">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.087221" />
+      <inertia ixx="0.173987" ixy="0.000010" ixz="0.000001" iyy="0.174019" iyz="0.000031" izz="0.168704" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_upper_arm_yaw.stl" />
+      </geometry>
+      <material name="#bbb9b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_upper_arm_yaw.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_upper_arm_fixed_joint" type="fixed">
+    <origin xyz="0.0 -0.0 -0.075" rpy="0.0 0.0 0.0" />
+    <parent link="right_upper_arm_yaw" />
+    <child link="right_upper_arm" />
+    </joint>
+
+  <link name="right_upper_arm">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.253982" />
+      <inertia ixx="0.000567" ixy="0.000000" ixz="0.000000" iyy="0.000567" iyz="0.000000" izz="0.000207" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_upper_arm.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_upper_arm.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_elbow_motor_mount_fixed_joint" type="fixed">
+    <origin xyz="-0.0 -0.0235 -0.1032" rpy="0.0 0.0 0.0" />
+    <parent link="right_upper_arm" />
+    <child link="right_elbow_motor_mount" />
+    </joint>
+
+  <link name="right_elbow_motor_mount">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.015006" />
+      <inertia ixx="0.000006" ixy="0.000000" ixz="0.000000" iyy="0.000012" iyz="0.000000" izz="0.000006" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_elbow_motor_mount.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_elbow_motor_mount.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_elbow_dm4340_fixed_joint" type="fixed">
+    <origin xyz="0.0 -0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="right_elbow_motor_mount" />
+    <child link="right_elbow_dm4340" />
+    </joint>
+
+  <link name="right_elbow_dm4340">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.291422" />
+      <inertia ixx="0.000148" ixy="0.000000" ixz="0.000000" iyy="0.000158" iyz="0.000000" izz="0.000148" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_elbow_dm4340.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_elbow_dm4340.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_elbow_pitch_joint" type="revolute">
+    <origin xyz="0.0 -0.001 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="right_elbow_dm4340" />
+    <child link="right_forearm" />
+    <limit lower="-2.6" upper="0.008" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_forearm">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.160884" />
+      <inertia ixx="0.000160" ixy="0.000000" ixz="0.000000" iyy="0.000160" iyz="0.000000" izz="0.000131" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_forearm.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_forearm.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_elbow_cover_1_fixed_joint" type="fixed">
+    <origin xyz="3.1e-05 -0.011 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="right_forearm" />
+    <child link="right_elbow_cover_1" />
+    </joint>
+
+  <link name="right_elbow_cover_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.018312" />
+      <inertia ixx="0.000008" ixy="0.000000" ixz="0.000000" iyy="0.000015" iyz="0.000000" izz="0.000008" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_elbow_cover_1.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_elbow_cover_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_forearm_yaw_dm4310_fixed_joint" type="fixed">
+    <origin xyz="-9.2e-05 0.024325 -0.049" rpy="0.0 0.0 0.0" />
+    <parent link="right_forearm" />
+    <child link="right_forearm_yaw_dm4310" />
+    </joint>
+
+  <link name="right_forearm_yaw_dm4310">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.234276" />
+      <inertia ixx="0.000094" ixy="0.000000" ixz="0.000000" iyy="0.000094" iyz="0.000000" izz="0.000127" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_forearm_yaw_dm4310.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_forearm_yaw_dm4310.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_forearm_yaw_joint" type="revolute">
+    <origin xyz="0.0 0.0 0.0005" rpy="0.0 0.0 0.0" />
+    <parent link="right_forearm_yaw_dm4310" />
+    <child link="right_forearm_yaw_cover" />
+    <limit lower="-1.5" upper="1.5" effort="0" velocity="0" />
+  <axis xyz="0 0 1" /></joint>
+
+  <link name="right_forearm_yaw_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.037170" />
+      <inertia ixx="0.000028" ixy="0.000000" ixz="0.000000" iyy="0.000028" iyz="0.000000" izz="0.000030" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_forearm_yaw_cover.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_forearm_yaw_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_wrist_yaw_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 -0.0595" rpy="0.0 0.0 0.0" />
+    <parent link="right_forearm_yaw_cover" />
+    <child link="right_wrist_yaw_cover" />
+    </joint>
+
+  <link name="right_wrist_yaw_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.226691" />
+      <inertia ixx="0.000450" ixy="0.000000" ixz="0.000000" iyy="0.000450" iyz="0.000000" izz="0.000185" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_wrist_yaw_dm3505_fixed_joint" type="fixed">
+    <origin xyz="0.0195 -0.0 -0.036404" rpy="0.0 0.0 0.0" />
+    <parent link="right_wrist_yaw_cover" />
+    <child link="right_wrist_yaw_dm3505" />
+    </joint>
+
+  <link name="right_wrist_yaw_dm3505">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.131728" />
+      <inertia ixx="0.020695" ixy="-0.000006" ixz="0.000179" iyy="0.022949" iyz="-0.000016" izz="0.022989" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_dm3505.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_dm3505.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_wrist_yaw_dm3505_to_right_wrist_yaw_link" type="fixed">
+    <origin xyz="-0.038 0.010807 -0.0062" rpy="0.0 0.0 0.0" />
+    <parent link="right_wrist_yaw_dm3505" />
+    <child link="right_wrist_yaw_link" />
+    </joint>
+
+  <link name="right_wrist_yaw_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004619" />
+      <inertia ixx="0.000003" ixy="0.000000" ixz="0.000000" iyy="0.000003" iyz="0.000000" izz="0.000000" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_link.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_wrist_yaw_joint" type="revolute">
+    <origin xyz="-0.028 -6.9e-05 -0.1085" rpy="0.0 0.0 0.0" />
+    <parent link="right_wrist_yaw_cover" />
+    <child link="right_wrist_yaw_mount" />
+    <limit lower="-1.5" upper="1.5" effort="0" velocity="0" />
+  <axis xyz="1 0 0" /></joint>
+
+  <link name="right_wrist_yaw_mount">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.041385" />
+      <inertia ixx="0.000016" ixy="0.000000" ixz="0.000000" iyy="0.000023" iyz="0.000000" izz="0.000020" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_mount.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_mount.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_wrist_pitch_dm3505_fixed_joint" type="fixed">
+    <origin xyz="0.027 -0.02 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="right_wrist_yaw_mount" />
+    <child link="right_wrist_pitch_dm3505" />
+    </joint>
+
+  <link name="right_wrist_pitch_dm3505">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.131954" />
+      <inertia ixx="0.022949" ixy="0.000006" ixz="0.000016" iyy="0.020695" iyz="0.000179" izz="0.022989" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_pitch_dm3505.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_pitch_dm3505.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_wrist_pitch_joint" type="revolute">
+    <origin xyz="-2e-06 -0.001 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="right_wrist_pitch_dm3505" />
+    <child link="right_gripper_base" />
+    <limit lower="-1.5" upper="1.5" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_gripper_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.157791" />
+      <inertia ixx="0.000368" ixy="0.000000" ixz="0.000000" iyy="0.000436" iyz="0.000000" izz="0.000234" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_base.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_parallel_1_joint" type="revolute">
+    <origin xyz="0.043482 0.016 -0.065" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="right_gripper_base" />
+    <child link="right_gripper_parallel_1" />
+    <limit lower="-0.6" upper="0.0" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_gripper_parallel_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008534" />
+      <inertia ixx="0.000003" ixy="0.000000" ixz="0.000000" iyy="0.000003" iyz="0.000000" izz="0.000001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_parallel_1.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_parallel_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_gear_driven_joint" type="revolute">
+    <origin xyz="0.015484 0.016 -0.065" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="right_gripper_base" />
+    <child link="right_gripper_gear_driven" />
+    <limit lower="-0.6" upper="0.0" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_gripper_gear_driven">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.012203" />
+      <inertia ixx="0.000005" ixy="0.000000" ixz="0.000000" iyy="0.000006" iyz="0.000000" izz="0.000001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_gear_driven.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_gear_driven.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_gear_drive_joint" type="revolute">
+    <origin xyz="-0.015516 0.016 -0.065" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="right_gripper_base" />
+    <child link="right_gripper_gear_drive" />
+    <limit lower="0.0" upper="0.6" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_gripper_gear_drive">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.014498" />
+      <inertia ixx="0.000006" ixy="0.000000" ixz="0.000000" iyy="0.000007" iyz="0.000000" izz="0.000002" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_gear_drive.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_gear_drive.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_parallel_2_joint" type="revolute">
+    <origin xyz="-0.043514 0.016 -0.065" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="right_gripper_base" />
+    <child link="right_gripper_parallel_2" />
+    <limit lower="0.0" upper="0.6" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_gripper_parallel_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008534" />
+      <inertia ixx="0.000003" ixy="0.000000" ixz="0.000000" iyy="0.000003" iyz="0.000000" izz="0.000001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_parallel_2.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_parallel_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_right_jaw_joint" type="prismatic">
+    <origin xyz="1e-06 0.01 -0.0994" rpy="0.0 0.0 0.0" />
+    <axis xyz="1 0 0" />
+    <parent link="right_gripper_base" />
+    <child link="right_gripper_right_jaw" />
+    <limit lower="0" upper="0.02" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_gripper_right_jaw">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.042753" />
+      <inertia ixx="0.000022" ixy="0.000000" ixz="0.000000" iyy="0.000028" iyz="0.000000" izz="0.000010" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_right_jaw.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_right_jaw.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_gripper_left_jaw_joint" type="prismatic">
+    <origin xyz="1e-06 0.01 -0.0994" rpy="0.0 0.0 0.0" />
+    <axis xyz="1 0 0" />
+    <parent link="right_gripper_base" />
+    <child link="right_gripper_left_jaw" />
+    <limit lower="-0.02" upper="0" effort="0" velocity="0" />
+  </joint>
+
+  <link name="right_gripper_left_jaw">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.042753" />
+      <inertia ixx="0.000022" ixy="0.000000" ixz="0.000000" iyy="0.000028" iyz="0.000000" izz="0.000010" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_left_jaw.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_gripper_left_jaw.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_wrist_yaw_parallel_link_cover_fixed_joint" type="fixed">
+    <origin xyz="0.027 0.022 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="right_wrist_yaw_mount" />
+    <child link="right_wrist_yaw_parallel_link_cover" />
+    </joint>
+
+  <link name="right_wrist_yaw_parallel_link_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.009248" />
+      <inertia ixx="0.000002" ixy="0.000000" ixz="0.000000" iyy="0.000004" iyz="0.000000" izz="0.000002" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_parallel_link_cover.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_wrist_yaw_parallel_link_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_elbow_cover_2_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0235 -0.1032" rpy="0.0 0.0 0.0" />
+    <parent link="right_upper_arm" />
+    <child link="right_elbow_cover_2" />
+    </joint>
+
+  <link name="right_elbow_cover_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.035531" />
+      <inertia ixx="0.000016" ixy="0.000000" ixz="0.000000" iyy="0.000030" iyz="0.000000" izz="0.000015" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_elbow_cover_2.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_elbow_cover_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_shoulder_front_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0245 -0.0808 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="right_shoulder_base" />
+    <child link="right_shoulder_front_cover" />
+    </joint>
+
+  <link name="right_shoulder_front_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.048447" />
+      <inertia ixx="0.000086" ixy="0.000000" ixz="0.000000" iyy="0.000044" iyz="0.000000" izz="0.000044" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_front_cover.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/right_shoulder_front_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_left_frame_plate_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.134 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="upper_body_base" />
+    <child link="upper_body_left_frame_plate" />
+    </joint>
+
+  <link name="upper_body_left_frame_plate">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.100875" />
+      <inertia ixx="0.436386" ixy="0.000006" ixz="-0.012856" iyy="0.443772" iyz="0.000001" izz="0.354506" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_left_frame_plate.stl" />
+      </geometry>
+      <material name="#bdbbb4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_left_frame_plate.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_pitch_dm8009p_fixed_joint" type="fixed">
+    <origin xyz="-0.0 0.006 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="upper_body_left_frame_plate" />
+    <child link="left_shoulder_pitch_dm8009p" />
+    </joint>
+
+  <link name="left_shoulder_pitch_dm8009p">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.930000" />
+      <inertia ixx="0.213323" ixy="0.000004" ixz="0.001118" iyy="0.214985" iyz="0.000094" izz="0.212777" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_pitch_dm8009p.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_pitch_dm8009p.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_pitch_joint" type="revolute">
+    <origin xyz="-0.0 0.0505 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="left_shoulder_pitch_dm8009p" />
+    <child link="left_shoulder_base" />
+    <limit lower="-2.5" upper="3.3" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_shoulder_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.173856" />
+      <inertia ixx="0.432171" ixy="0.004225" ixz="0.000004" iyy="0.393439" iyz="0.000008" izz="0.418048" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_base.stl" />
+      </geometry>
+      <material name="#bbb9b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_harness_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0 -0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="left_shoulder_base" />
+    <child link="left_shoulder_harness_cover" />
+    </joint>
+
+  <link name="left_shoulder_harness_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.087521" />
+      <inertia ixx="0.030026" ixy="0.000397" ixz="-0.000000" iyy="0.031695" iyz="-0.000001" izz="0.030435" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_harness_cover.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_harness_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_roll_dm8009p_fixed_joint" type="fixed">
+    <origin xyz="-0.0205 0.0808 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="left_shoulder_base" />
+    <child link="left_shoulder_roll_dm8009p" />
+    </joint>
+
+  <link name="left_shoulder_roll_dm8009p">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.929300" />
+      <inertia ixx="0.214823" ixy="-0.000004" ixz="-0.000093" iyy="0.213163" iyz="0.001117" izz="0.212618" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_roll_dm8009p.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_roll_dm8009p.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_roll_joint" type="revolute">
+    <origin xyz="-0.0097 -0.0 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="1 0 0" />
+    <parent link="left_shoulder_roll_dm8009p" />
+    <child link="left_shoulder_frame" />
+    <limit lower="-0.1" upper="3.3" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_shoulder_frame">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.180278" />
+      <inertia ixx="0.223316" ixy="-0.000008" ixz="0.022495" iyy="0.217038" iyz="0.000009" izz="0.204319" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_frame.stl" />
+      </geometry>
+      <material name="#bbb9b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_frame.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_rear_cover_fixed_joint" type="fixed">
+    <origin xyz="-0.009 -0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="left_shoulder_frame" />
+    <child link="left_shoulder_rear_cover" />
+    </joint>
+
+  <link name="left_shoulder_rear_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.050552" />
+      <inertia ixx="0.046320" ixy="-0.000000" ixz="0.000325" iyy="0.040525" iyz="0.000016" izz="0.040614" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_rear_cover.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_rear_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_upper_arm_yaw_dm4340p_fixed_joint" type="fixed">
+    <origin xyz="0.0292 -0.0 -0.0657" rpy="0.0 0.0 0.0" />
+    <parent link="left_shoulder_frame" />
+    <child link="left_upper_arm_yaw_dm4340p" />
+    </joint>
+
+  <link name="left_upper_arm_yaw_dm4340p">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.308865" />
+      <inertia ixx="0.119785" ixy="0.000010" ixz="0.000373" iyy="0.119331" iyz="-0.000046" izz="0.113249" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_upper_arm_yaw_dm4340p.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_upper_arm_yaw_dm4340p.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_upper_arm_yaw_joint" type="revolute">
+    <origin xyz="0.0 -0.0 -0.0018" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 1" />
+    <parent link="left_upper_arm_yaw_dm4340p" />
+    <child link="left_upper_arm_yaw" />
+    <limit lower="-1.5" upper="1.5" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_upper_arm_yaw">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.087221" />
+      <inertia ixx="0.000080" ixy="0.000000" ixz="0.000000" iyy="0.000080" iyz="0.000000" izz="0.000071" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_upper_arm_yaw.stl" />
+      </geometry>
+      <material name="#bbb9b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_upper_arm_yaw.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_upper_arm_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 -0.075" rpy="0.0 0.0 0.0" />
+    <parent link="left_upper_arm_yaw" />
+    <child link="left_upper_arm" />
+    </joint>
+
+  <link name="left_upper_arm">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.253982" />
+      <inertia ixx="0.227446" ixy="0.000008" ixz="0.003092" iyy="0.228355" iyz="0.000077" izz="0.198631" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_upper_arm.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_upper_arm.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_elbow_motor_mount_fixed_joint" type="fixed">
+    <origin xyz="-0.0 0.0235 -0.1032" rpy="0.0 0.0 0.0" />
+    <parent link="left_upper_arm" />
+    <child link="left_elbow_motor_mount" />
+    </joint>
+
+  <link name="left_elbow_motor_mount">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.015006" />
+      <inertia ixx="0.013203" ixy="0.000000" ixz="0.000139" iyy="0.014712" iyz="-0.000000" izz="0.013263" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_elbow_motor_mount.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_elbow_motor_mount.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_elbow_dm4340_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="left_elbow_motor_mount" />
+    <child link="left_elbow_dm4340" />
+    </joint>
+
+  <link name="left_elbow_dm4340">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.291422" />
+      <inertia ixx="0.231735" ixy="0.000329" ixz="-0.000115" iyy="0.223504" iyz="0.000013" izz="0.231831" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_elbow_dm4340.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_elbow_dm4340.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_elbow_pitch_joint" type="revolute">
+    <origin xyz="0.0 0.001 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="left_elbow_dm4340" />
+    <child link="left_forearm" />
+    <limit lower="-2.6" upper="0.008" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_forearm">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.160884" />
+      <inertia ixx="0.086270" ixy="0.000113" ixz="0.000467" iyy="0.085775" iyz="-0.011408" izz="0.085024" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_forearm.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_forearm.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_elbow_cover_1_fixed_joint" type="fixed">
+    <origin xyz="3.1e-05 0.011 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="left_forearm" />
+    <child link="left_elbow_cover_1" />
+    </joint>
+
+  <link name="left_elbow_cover_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.018312" />
+      <inertia ixx="0.006121" ixy="0.000000" ixz="0.000014" iyy="0.007597" iyz="-0.000000" izz="0.006832" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_elbow_cover_1.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_elbow_cover_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_forearm_yaw_dm4310_fixed_joint" type="fixed">
+    <origin xyz="-9.2e-05 -0.024325 -0.049" rpy="0.0 0.0 0.0" />
+    <parent link="left_forearm" />
+    <child link="left_forearm_yaw_dm4310" />
+    </joint>
+
+  <link name="left_forearm_yaw_dm4310">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.234276" />
+      <inertia ixx="0.094380" ixy="-0.000107" ixz="-0.000000" iyy="0.094104" iyz="0.000000" izz="0.089523" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_forearm_yaw_dm4310.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_forearm_yaw_dm4310.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_forearm_yaw_joint" type="revolute">
+    <origin xyz="0.0 -0.0 0.0005" rpy="0.0 0.0 0.0" />
+    <parent link="left_forearm_yaw_dm4310" />
+    <child link="left_forearm_yaw_cover" />
+    <limit lower="-1.5" upper="1.5" effort="0" velocity="0" />
+  <axis xyz="0 0 1" /></joint>
+
+  <link name="left_forearm_yaw_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.037170" />
+      <inertia ixx="0.065704" ixy="0.000017" ixz="0.000008" iyy="0.065692" iyz="0.000023" izz="0.065665" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_forearm_yaw_cover.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_forearm_yaw_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wrist_yaw_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0 -0.0 -0.0595" rpy="0.0 0.0 0.0" />
+    <parent link="left_forearm_yaw_cover" />
+    <child link="left_wrist_yaw_cover" />
+    </joint>
+
+  <link name="left_wrist_yaw_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.226691" />
+      <inertia ixx="0.154802" ixy="0.001236" ixz="0.000383" iyy="0.158578" iyz="0.000079" izz="0.142108" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wrist_yaw_dm3505_fixed_joint" type="fixed">
+    <origin xyz="0.0195 0.0 -0.036404" rpy="0.0 0.0 0.0" />
+    <parent link="left_wrist_yaw_cover" />
+    <child link="left_wrist_yaw_dm3505" />
+    </joint>
+
+  <link name="left_wrist_yaw_dm3505">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.131728" />
+      <inertia ixx="0.030643" ixy="-0.000004" ixz="0.000107" iyy="0.030967" iyz="-0.000003" izz="0.030837" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_dm3505.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_dm3505.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wrist_yaw_base_fixed_joint" type="fixed">
+    <origin xyz="-0.038 -0.010807 -0.0062" rpy="0.0 0.0 0.0" />
+    <parent link="left_wrist_yaw_dm3505" />
+    <child link="left_wrist_yaw_base" />
+    </joint>
+
+  <link name="left_wrist_yaw_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.004619" />
+      <inertia ixx="0.004316" ixy="0.000028" ixz="-0.000317" iyy="0.004310" iyz="-0.000194" izz="0.003449" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_base.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wrist_yaw_joint" type="revolute">
+    <origin xyz="-0.028 6.9e-05 -0.1085" rpy="0.0 0.0 0.0" />
+    <parent link="left_wrist_yaw_cover" />
+    <child link="left_wrist_yaw_mount" />
+    <limit lower="-1.5" upper="1.5" effort="0" velocity="0" />
+  <axis xyz="1 0 0" /></joint>
+
+  <link name="left_wrist_yaw_mount">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.041385" />
+      <inertia ixx="0.036929" ixy="0.000010" ixz="-0.000001" iyy="0.037780" iyz="-0.000000" izz="0.037300" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_mount.stl" />
+      </geometry>
+      <material name="#bab8b4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_mount.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wrist_pitch_dm3505_fixed_joint" type="fixed">
+    <origin xyz="0.027 0.02 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="left_wrist_yaw_mount" />
+    <child link="left_wrist_pitch_dm3505" />
+    </joint>
+
+  <link name="left_wrist_pitch_dm3505">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.131954" />
+      <inertia ixx="0.031073" ixy="0.000004" ixz="-0.000003" iyy="0.030748" iyz="-0.000107" izz="0.030943" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_pitch_dm3505.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_pitch_dm3505.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wrist_pitch_joint" type="revolute">
+    <origin xyz="-2e-06 0.001 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="left_wrist_pitch_dm3505" />
+    <child link="left_gripper_base" />
+    <limit lower="-1.5" upper="1.5" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_gripper_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.157791" />
+      <inertia ixx="0.176420" ixy="-0.000025" ixz="0.000474" iyy="0.177435" iyz="0.007048" izz="0.169461" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_base.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_parallel_1_joint" type="revolute">
+    <origin xyz="0.043482 -0.016 -0.065" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="left_gripper_base" />
+    <child link="left_gripper_parallel_1" />
+    <limit lower="-0.6" upper="0.0" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_gripper_parallel_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008534" />
+      <inertia ixx="0.002237" ixy="-0.000000" ixz="-0.000167" iyy="0.002247" iyz="-0.000000" izz="0.001863" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_parallel_1.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_parallel_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_gear_driven_joint" type="revolute">
+    <origin xyz="0.015484 -0.016 -0.065" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="left_gripper_base" />
+    <child link="left_gripper_gear_driven" />
+    <limit lower="-0.6" upper="0.0" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_gripper_gear_driven">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.012203" />
+      <inertia ixx="0.003634" ixy="0.000004" ixz="-0.000205" iyy="0.003712" iyz="0.000048" izz="0.003125" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_gear_driven.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_gear_driven.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_gear_drive_joint" type="revolute">
+    <origin xyz="-0.015516 -0.016 -0.065" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="left_gripper_base" />
+    <child link="left_gripper_gear_drive" />
+    <limit lower="0.0" upper="0.6" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_gripper_gear_drive">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.014498" />
+      <inertia ixx="0.004140" ixy="-0.000028" ixz="0.000224" iyy="0.004193" iyz="-0.000020" izz="0.003582" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_gear_drive.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_gear_drive.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_parallel_2_joint" type="revolute">
+    <origin xyz="-0.043514 -0.016 -0.065" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="left_gripper_base" />
+    <child link="left_gripper_parallel_2" />
+    <limit lower="0.0" upper="0.6" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_gripper_parallel_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.008534" />
+      <inertia ixx="0.002237" ixy="0.000000" ixz="0.000167" iyy="0.002247" iyz="-0.000000" izz="0.001863" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_parallel_2.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_parallel_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_right_jaw_joint" type="prismatic">
+    <origin xyz="1e-06 -0.01 -0.0994" rpy="0.0 0.0 0.0" />
+    <axis xyz="1 0 0" />
+    <parent link="left_gripper_base" />
+    <child link="left_gripper_right_jaw" />
+    <limit lower="0" upper="0.02" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_gripper_right_jaw">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.042753" />
+      <inertia ixx="0.011148" ixy="0.000024" ixz="-0.001140" iyy="0.011829" iyz="0.000021" izz="0.010798" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_right_jaw.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_right_jaw.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_gripper_left_jaw_joint" type="prismatic">
+    <origin xyz="1e-06 -0.01 -0.0994" rpy="0.0 0.0 0.0" />
+    <axis xyz="1 0 0" />
+    <parent link="left_gripper_base" />
+    <child link="left_gripper_left_jaw" />
+    <limit lower="-0.02" upper="0" effort="0" velocity="0" />
+  </joint>
+
+  <link name="left_gripper_left_jaw">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.042753" />
+      <inertia ixx="0.011148" ixy="0.000024" ixz="0.001140" iyy="0.011829" iyz="-0.000021" izz="0.010798" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_left_jaw.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_gripper_left_jaw.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wrist_yaw_parallel_link_cover_fixed_joint" type="fixed">
+    <origin xyz="0.027 -0.022 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="left_wrist_yaw_mount" />
+    <child link="left_wrist_yaw_parallel_link_cover" />
+    </joint>
+
+  <link name="left_wrist_yaw_parallel_link_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.009248" />
+      <inertia ixx="0.001872" ixy="0.000000" ixz="0.000029" iyy="0.002311" iyz="-0.000000" izz="0.002078" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_parallel_link_cover.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_wrist_yaw_parallel_link_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_elbow_cover_2_fixed_joint" type="fixed">
+    <origin xyz="0.0 -0.0235 -0.1032" rpy="0.0 0.0 0.0" />
+    <parent link="left_upper_arm" />
+    <child link="left_elbow_cover_2" />
+    </joint>
+
+  <link name="left_elbow_cover_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.035531" />
+      <inertia ixx="0.011386" ixy="0.000015" ixz="-0.000284" iyy="0.013393" iyz="-0.000054" izz="0.012009" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_elbow_cover_2.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_elbow_cover_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_shoulder_front_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0245 0.0808 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="left_shoulder_base" />
+    <child link="left_shoulder_front_cover" />
+    </joint>
+
+  <link name="left_shoulder_front_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.048447" />
+      <inertia ixx="0.053594" ixy="0.000000" ixz="0.000000" iyy="0.045079" iyz="-0.000377" izz="0.048226" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_front_cover.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/left_shoulder_front_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="neck_yaw_dm4310_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.07 0.04" rpy="0.0 0.0 0.0" />
+    <parent link="upper_body_base" />
+    <child link="neck_yaw_dm4310" />
+    </joint>
+
+  <link name="neck_yaw_dm4310">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.256795" />
+      <inertia ixx="0.067566" ixy="-0.000092" ixz="-0.000673" iyy="0.065503" iyz="-0.001183" izz="0.052228" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/neck_yaw_dm4310.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/neck_yaw_dm4310.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="neck_yaw_joint" type="revolute">
+    <origin xyz="0.0 0.0 0.0005" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 1" />
+    <parent link="neck_yaw_dm4310" />
+    <child link="neck_base_yaw" />
+    <limit lower="-3.14159" upper="3.14159" effort="0" velocity="0" />
+  </joint>
+
+  <link name="neck_base_yaw">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.170897" />
+      <inertia ixx="0.000173" ixy="0.000000" ixz="0.000000" iyy="0.000158" iyz="0.000000" izz="0.000107" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/neck_base_yaw.stl" />
+      </geometry>
+      <material name="#bcbab4" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/neck_base_yaw.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="neck_pitch_dm4310_fixed_joint" type="fixed">
+    <origin xyz="-0.0 -0.0222 0.06" rpy="0.0 0.0 0.0" />
+    <parent link="neck_base_yaw" />
+    <child link="neck_pitch_dm4310" />
+    </joint>
+
+  <link name="neck_pitch_dm4310">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.256795" />
+      <inertia ixx="0.067566" ixy="-0.000092" ixz="-0.000673" iyy="0.065503" iyz="-0.001183" izz="0.052228" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/neck_pitch_dm4310.stl" />
+      </geometry>
+      <material name="#000000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/neck_pitch_dm4310.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="head_pitch_joint" type="revolute">
+    <origin xyz="0.0 -0.0005 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 1 0" />
+    <parent link="neck_pitch_dm4310" />
+    <child link="head" />
+    <limit lower="-0.26" upper="0.96" effort="0" velocity="0" />
+  </joint>
+
+  <link name="head">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="1.465460" />
+      <inertia ixx="0.010695" ixy="0.000000" ixz="0.000000" iyy="0.012443" iyz="0.000000" izz="0.006813" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/head.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/head.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="head_face_panel_fixed_joint" type="fixed">
+    <origin xyz="-0.0785 0.022548 0.241" rpy="0.0 0.0 0.0" />
+    <parent link="head" />
+    <child link="head_face_panel" />
+    </joint>
+
+  <link name="head_face_panel">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.519538" />
+      <inertia ixx="0.002687" ixy="0.000000" ixz="0.000000" iyy="0.003370" iyz="0.000000" izz="0.002092" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/head_face_panel.stl" />
+      </geometry>
+      <material name="#131313" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/head_face_panel.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_upper_left_cover_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.14 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="upper_body_base" />
+    <child link="upper_body_upper_left_cover" />
+    </joint>
+
+  <link name="upper_body_upper_left_cover">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.100875" />
+      <inertia ixx="0.538626" ixy="-0.000945" ixz="0.006566" iyy="0.540062" iyz="-0.038692" izz="0.442410" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_upper_left_cover.stl" />
+      </geometry>
+      <material name="#ffffff" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_upper_left_cover.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_emergency_button_base_fixed_joint" type="fixed">
+    <origin xyz="-0.227061 -0.15 0.931" rpy="0.0 0.0 0.0" />
+    <parent link="lift_base_tower" />
+    <child link="lift_emergency_button_base" />
+    </joint>
+
+  <link name="lift_emergency_button_base">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.075798" />
+      <inertia ixx="0.000016" ixy="0.000000" ixz="0.000000" iyy="0.000035" iyz="0.000000" izz="0.000031" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_emergency_button_base.stl" />
+      </geometry>
+      <material name="#a2a2a2" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_emergency_button_base.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="lift_emergency_button_fixed_joint" type="fixed">
+    <origin xyz="-0.01 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="lift_emergency_button_base" />
+    <child link="lift_emergency_button" />
+    </joint>
+
+  <link name="lift_emergency_button">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.019467" />
+      <inertia ixx="0.000005" ixy="0.000000" ixz="0.000000" iyy="0.000003" iyz="0.000000" izz="0.000003" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_emergency_button.stl" />
+      </geometry>
+      <material name="#ff0000" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/lift_emergency_button.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="display_mount_fixed_joint" type="fixed">
+    <origin xyz="-0.227061 -0.15 0.706" rpy="0.0 0.1745 0.0" />
+    <parent link="lift_base_tower" />
+    <child link="display_mount" />
+  </joint>
+
+  <link name="display_mount">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.413744" />
+      <inertia ixx="0.087618" ixy="-0.000004" ixz="-0.001621" iyy="0.061828" iyz="0.000000" izz="0.069230" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/display_mount.stl" />
+      </geometry>
+      <material name="#999793" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/display_mount.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="monitor_10_5_inch_fixed_joint" type="fixed">
+    <origin xyz="-0.052 0.0 0.0046" rpy="0.0 0.0 0.0" />
+    <parent link="display_mount" />
+    <child link="monitor_10_5_inch" />
+    </joint>
+
+  <link name="monitor_10_5_inch">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.379472" />
+      <inertia ixx="0.468978" ixy="-0.007070" ixz="0.000000" iyy="0.943502" iyz="-0.003663" izz="1.404095" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/monitor_10_5_inch.stl" />
+      </geometry>
+      <material name="#6a6861" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/monitor_10_5_inch.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_rear_left_support_fixed_joint" type="fixed">
+    <origin xyz="-0.245 -0.15 0.077" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="upper_body_rear_left_support" />
+    </joint>
+
+  <link name="upper_body_rear_left_support">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.312229" />
+      <inertia ixx="0.228429" ixy="0.000000" ixz="0.000000" iyy="0.231872" iyz="0.000000" izz="0.147743" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_rear_left_support.stl" />
+      </geometry>
+      <material name="#b8b8b8" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_rear_left_support.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_body_rear_right_support_fixed_joint" type="fixed">
+    <origin xyz="-0.245 0.15 0.077" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="upper_body_rear_right_support" />
+    </joint>
+
+  <link name="upper_body_rear_right_support">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.312229" />
+      <inertia ixx="0.228429" ixy="0.000000" ixz="0.000000" iyy="0.231872" iyz="0.000000" izz="0.147743" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_rear_right_support.stl" />
+      </geometry>
+      <material name="#b8b8b8" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_body_rear_right_support.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="under_rubber_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="under_rubber" />
+    </joint>
+
+  <link name="under_rubber">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.141105" />
+      <inertia ixx="4.506692" ixy="0.000002" ixz="-0.000000" iyy="5.368566" iyz="0.000036" izz="9.872367" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/under_rubber.stl" />
+      </geometry>
+      <material name="#47453b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/under_rubber.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="upper_rubber_fixed_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.065" rpy="0.0 0.0 0.0" />
+    <parent link="mobile_base_chassis" />
+    <child link="upper_rubber" />
+    </joint>
+
+  <link name="upper_rubber">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.141105" />
+      <inertia ixx="8.708711" ixy="0.000002" ixz="-0.000000" iyy="8.926926" iyz="-0.000250" izz="9.873328" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_Rubber.stl" />
+      </geometry>
+      <material name="#47453b" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://agirobots_worker_description/meshes/upper_Rubber.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+</robot>
