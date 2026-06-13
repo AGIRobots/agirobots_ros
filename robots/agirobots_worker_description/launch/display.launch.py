@@ -40,8 +40,21 @@ def generate_launch_description():
             package='joint_state_publisher_gui',
             executable='joint_state_publisher_gui',
             output='screen',
-            parameters=[{'use_sim_time': use_sim_time}],
+            parameters=[
+                {'use_sim_time': use_sim_time},
+                {'robot_description': robot_desc},
+            ],
             condition=conditions.IfCondition(use_gui),
+        ),
+        Node(
+            package='joint_state_publisher',
+            executable='joint_state_publisher',
+            output='screen',
+            parameters=[
+                {'use_sim_time': use_sim_time},
+                {'robot_description': robot_desc},
+            ],
+            condition=conditions.UnlessCondition(use_gui),
         ),
         Node(
             package='rviz2',

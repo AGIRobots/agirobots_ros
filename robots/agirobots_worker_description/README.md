@@ -11,6 +11,10 @@ AGIRobots Worker の **URDF モデル、メッシュ、RViz2 可視化設定** �
 
 ## 構造プレビュー
 
+RViz2 で描画確認したプレビューです。
+
+![AGIRobots Worker RViz preview](docs/rviz_preview.png)
+
 URDF から生成したリンク・ジョイント構造図です。
 
 ![AGIRobots Worker URDF graph](docs/urdf_graph.png)
@@ -37,5 +41,3 @@ agirobots_worker_description/
 ## 補足
 
 このパッケージは可視化と構造確認を目的としています。実機制御やシミュレーション制御は含みません。
-
-現時点では RViz 上で `RobotModel` にエラー表示が残っており、README に載せる完成スクリーンショットとしては未採用です。URDF の XML 構文と mesh 参照自体は確認済みですが、可視化品質の詰めは追加対応が必要です。
